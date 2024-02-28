@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="cursor" class="cursor"></div>
+    <div id="cursor-bg" class="cursor"></div>
+
+    <nav class="nav" id="nav">
+        <div class="container">
+            <ul class="navLinks">
+                <!-- <li class="listItem" data-hrefsec-id="part1" data-inner1st-class="">Home</li> -->
+                <li class="listItem" data-hrefsec-id="about" data-inner1st-class="">About</li>
+                <!-- <li class="listItem" data-hrefsec-id="projectsSec" data-inner1st-class="cont1">Works</li> -->
+                <li class="listItem" data-hrefsec-id="contactSec" data-inner1st-class="">Contact</li>
+            </ul>
+            <div class="hamburger"></div>
+        </div>
+    </nav>
+
+
+    <main id="main">
+        <section class="section" id="homeSec">
+            <div id="part1">
+                <div class="left">
+                    <h4>Hi, itz </h4>
+                    <h1>Ab<span></span>nash</h1>
+                    <h1> Kalita</h1>
+                    <h2>A <span>Full-Stack</span> Web Developer</h2>
+                    <div id="i-dot"></div>
+                </div>
+                <div class="right">
+                    <img src="img/abi passport pic.jpg" alt="" id="myImg">
+                </div>
+
+                <div id="scroll">Scroll ⬇</div>
+            </div>
+            <div class="part2" id="about">
+                <div class="container cont1">
+                    <img src="img/abi passport pic.png" alt="" class="img">
+
+                    <div class="right">
+                        <h1>about.</h1>
+                        <p class="intro">I'm a full-stack web developer based in Assam, India.</p>
+                        <p class="description">
+                            In 2020, I started my journey as a web developer and designer, sparking a passion for
+                            crafting innovative digital solutions. Through hands-on projects and problem-solving
+                            challenges, I honed my skills in <strong> database designing and backend
+                                integration</strong> with <strong>PHP, Django, MySql,</strong> and more. Over the years,
+                            I've refined my skills to efficiently design and develop a variety of web-based solutions,
+                            from standard websites to dynamic e-commerce platforms.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="container cont2">
+                    <!-- images -->
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <section class="section" id="projectsSec">
+            <div class="cont1">
+                <div class="imgCard" id="card1">
+                    <img src="https://images.unsplash.com/photo-1549289524-06cf8837ace5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGFpbnRpbmd8ZW58MHx8MHx8fDA%3D"
+                        alt="">
+                </div>
+                <div class="imgCard" id="card2">
+                    <img src="https://images.unsplash.com/photo-1583766395091-2eb9994ed094?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vZGVsfGVufDB8fDB8fHww"
+                        alt="">
+                </div>
+                <div class="imgCard" id="card3">
+                    <img src="https://images.unsplash.com/photo-1564485377539-4af72d1f6a2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1vZGVsfGVufDB8fDB8fHww"
+                        alt="">
+                </div>
+
+                <div id="fProj">
+                    <h1>featured</h1>
+                    <h1>Projects</h1>
+                </div>
+            </div>
+            <div class="cont2">
+
+                <div class="textCard">
+                    <h1 class="heading">FoodFest</h1>
+                    <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed animi, accusamus
+                        labore tempora laudantium, provident libero laborum minus rerum debitis deleniti cupiditate
+                        inventore iste nulla adipisci dolores sapiente dicta enim!</p>
+                </div>
+                <div class="textCard">
+                    <h1 class="heading">fgftyuyt</h1>
+                    <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed animi, accusamus
+                        labore tempora laudantium, provident libero laborum minus rerum debitis deleniti cupiditate
+                        inventore iste nulla adipisci dolores sapiente dicta enim!</p>
+                </div>
+                <div class="textCard last">
+                    <h1 class="heading">bgjud</h1>
+                    <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed animi, accusamus
+                        labore tempora laudantium, provident libero laborum minus rerum debitis deleniti cupiditate
+                        inventore iste nulla adipisci dolores sapiente dicta enim!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="quoteSec">
+            <div class="quote">
+                <i class="bi bi-quote"></i>
+                <h1>Ready to elevate your online presence? <br> Let's build your dream website together.</h1>
+                <i class="bi bi-quote"></i>
+            </div>
+        </section>
+
+        <section class="" id="contactSec">
+            
+            <div class="formCont">
+                <h1>Contact Me</h1>
+                <form action="" method="post" id="contactForm">
+                    <div class="formElem">
+                        <label for="uName">Your Name :</label>
+                        <input type="text" name="uName" id="uName" placeholder="Name">
+                    </div>
+                    <div class="elemWrapper">
+                        <div class="formElem">
+                            <label for="uEmail">Your Email :</label>
+                            <input type="email" name="uEmail" id="uEmail" placeholder="Email">
+                        </div>
+                        <div class="formElem">
+                            <label for="uPhone">Your Phone Number (Optional) :</label>
+                            <input type="tel" name="uPhone" id="uPhone" placeholder="Phone Number">
+                        </div>
+
+                       
+                    </div>
+
+                    <div class="formElem">
+                        <label for="msg">Message :</label>
+                        <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Your Message Here"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-crimson-outline">
+                        Sand
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </form>
+                <p>OR</p>
+                <div class="contactOption">
+                    <a href="https://www.linkedin.com/in/abinash-kalita-965aa3284" target="_blank" rel="noopener noreferrer" class="card">
+                        <i class="bi bi-linkedin"></i>
+                        <h1>Linkedin</h1>
+                    </a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJftLwwLqqmkThZxWPfFQMSjGtqssbbLzCwzVQqQLLfCTTFZMXwxFkNRzHChJLcPmCVbMZL" target="_blank" rel="noopener noreferrer" class="card" >
+                        <i class="bi bi-envelope-fill"></i>
+                        <h1>abikalita34@gmail.com</h1>
+                    </a>
+                    <a href="http://github.com/itz-A53-K" target="_blank" rel="noopener noreferrer" class="card">
+                        <i class="bi bi-github"></i>
+                        <h1>GitHub</h1>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+        voluptas! Ad voluptas laudantium consequatur dolor ex odit iusto consectetur sequi, harum nihil quasi beatae
+        quisquam sunt fugit quidem quae soluta at minus blanditiis. Nesciunt temporibus amet expedita sed at
+        perspiciatis mollitia necessitatibus quos tempora, inventore deserunt soluta fugiat aut ad quaerat, a fuga velit
+        suscipit. Fugit inventore fugiat dicta repudiandae praesentium consectetur odio accusamus quam? Voluptatibus,
+        pariatur beatae alias quam ab hic veniam omnis expedita aliquid molestias laudantium magni in dolores doloribus
+        temporibus voluptatem earum id quo nemo dolorum, illo ad! Expedita nisi non suscipit numquam soluta maiores
+        nesciunt officiis velit incidunt commodi quisquam omnis perspiciatis beatae error consequatur, consectetur,
+        mollitia porro ratione sint minima in? Voluptatem officia quibusdam quo consectetur rem nemo ex odio
+        perspiciatis quam, facilis unde placeat corrupti? Veniam, expedita sed. Nihil fugit architecto iusto accusamus
+        voluptatum voluptas assumenda pariatur. In, temporibus architecto. Provident illo consequuntur debitis expedita
+        nemo sapiente, vel tempora! Ex beatae quo, voluptates deserunt accusamus fugit, rem ipsum nobis rerum dolores,
+        obcaecati tempora ipsam in voluptas. Ipsam, sequi minus exercitationem et vitae harum quidem animi nostrum
+        accusamus eligendi aut consequatur odit earum voluptatibus in eveniet, iusto qui assumenda velit necessitatibus
+        nam maxime libero.
+
+
+
+
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"
+        integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
