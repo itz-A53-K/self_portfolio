@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Abinash Kalita</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@5.0.0-beta.9/dist/locomotive-scroll.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="style.css">
@@ -35,7 +35,7 @@
             <div id="part1">
                 <div class="left">
                     <h4>Hi, itz </h4>
-                    <h1>Ab<span></span>nash</h1>
+                    <h1>Ab<span class="i-span"></span>nash</h1>
                     <h1> Kalita</h1>
                     <h2>A <span>Full-Stack</span> Web Developer</h2>
                     <div id="i-dot"></div>
@@ -48,18 +48,16 @@
             </div>
             <div class="part2" id="about">
                 <div class="container cont1">
-                    <img src="img/abi passport pic.png" alt="" class="img">
+                    <div class="imgCont">
+                        <img src="img/abi passport pic.png" alt="" class="img">
+
+                    </div>
 
                     <div class="right">
                         <h1>about.</h1>
                         <p class="intro">I'm a full-stack web developer based in Assam, India.</p>
                         <p class="description">
-                            In 2020, I started my journey as a web developer and designer, sparking a passion for
-                            crafting innovative digital solutions. Through hands-on projects and problem-solving
-                            challenges, I honed my skills in <strong> database designing and backend
-                                integration</strong> with <strong>PHP, Django, MySql,</strong> and more. Over the years,
-                            I've refined my skills to efficiently design and develop a variety of web-based solutions,
-                            from standard websites to dynamic e-commerce platforms.
+                            In 2020, I started my journey as a web developer and designer, sparking a passion for crafting innovative digital solutions. Through hands-on projects and problem-solving challenges, I honed my skills in <strong> database designing and backend integration</strong> with <strong>PHP, Django, MySql,</strong> and more. Over the years, I've refined my skills to efficiently design and develop a variety of web-based solutions, from standard websites to dynamic e-commerce platforms.
                         </p>
                     </div>
                 </div>
@@ -124,8 +122,6 @@
                     </div>
 
                 </div>
-
-
             </div>
 
 
@@ -143,7 +139,7 @@
 
             <div class="formCont">
                 <h1>Contact Me</h1>
-                <form action="" method="post" id="contactForm">
+                <form action="./handleForm.php" method="post" id="contactForm">
                     <div class="formElem">
                         <label for="uName">Your Name :</label>
                         <input type="text" name="uName" id="uName" placeholder="Name">
@@ -166,7 +162,7 @@
                         <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Your Message Here"></textarea>
                     </div>
                     <button type="submit" class="btn btn-crimson-outline">
-                        Sand
+                        Send
                         <i class="bi bi-arrow-right"></i>
                     </button>
                 </form>
@@ -225,6 +221,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script src="script.js"></script>
 

@@ -1,15 +1,57 @@
 (function () {
-   const locomotiveScroll = new LocomotiveScroll();
+   const locomotiveScroll = new LocomotiveScroll({
+      lenisOptions: {
+         smoothWheel: true,
+         smoothTouch: true,
+         wheelMultiplier: 0.25,
+         touchMultiplier: 0.4,
+         easing: 'easeInOut',
+
+      }
+   });
 })();
 
 
 
-var crsr = document.querySelector("#cursor")
-var crsrBG = document.querySelector("#cursor-bg")
+$(window).resize(function () {
+
+});
+
+var i_spanPos
+$(document).ready(() => {
+
+   i_spanPos = $("#part1 .i-span").position()
+
+   // $("#i-dot").css("left", i_spanPos.left + "px").css("top", i_spanPos.top - 25 + "px")
+
+   gsap.set("#i-dot", {
+      left: i_spanPos.left + "px",
+      top: i_spanPos.top - 25 + "px",
+   })
+
+   cursorMoveAnimation()
+   autoScroll()
+   initialAnimation()
+   homeAnimation()
+   projectsSecAnimation()
+   quoteAnimation()
+   themeAnimation()
+   handleForm()
+
+})
+
+
+
+
+
+
 
 
 
 function cursorMoveAnimation() {
+   var crsr = document.querySelector("#cursor")
+   var crsrBG = document.querySelector("#cursor-bg")
+
    document.addEventListener("mousemove", function (dets) {
       crsr.style.left = dets.x + 12 + "px"
       crsr.style.top = dets.y - 5 + "px"
@@ -21,6 +63,9 @@ function cursorMoveAnimation() {
 
 
 function crsrHov(elem) {
+   var crsr = document.querySelector("#cursor")
+   var crsrBG = document.querySelector("#cursor-bg")
+
    elem.addEventListener("mouseenter", () => {
       crsrBG.style.scale = 0
       crsr.style.scale = 2
@@ -37,7 +82,7 @@ function crsrHov(elem) {
 
 
 function autoScroll() {
-   
+
    var navlinks = document.querySelectorAll("#nav .navLinks .listItem")
    navlinks.forEach((link) => {
       crsrHov(link)
@@ -121,28 +166,38 @@ function homeAnimation() {
       }
    })
 
+   function iDot_left_top(val) {
+
+      if (val == "top") {
+         return $(window).height() / 2 - i_spanPos.top - 25
+      }
+      if (val == "left") {
+         return $(window).width() / 2
+      }
+
+   }
+
 
    tl1.to("#i-dot", {
       rotate: 180,
-      left: "50%",
-      top: "50%",
+      left: iDot_left_top("left") + "px",
+      top: iDot_left_top("top") + "px",
       scale: 2
    })
 
    tl1.to("#i-dot", {
-      scale: 60,
+      scale: 62,
       rotate: 360,
+      duration: 1,
       backgroundColor: "#c3c1c1",
    })
 
    tl1.from("#homeSec #about,#nav", {
       display: "none",
-      opacity: 0,
-      // delay: 1,
    }, "part2Elem")
 
 
-   tl1.from("#homeSec #about .cont1 img", {
+   tl1.from("#homeSec #about .cont1 .imgCont", {
       x: -100,
       opacity: 0,
       // delay: 1,
@@ -189,16 +244,16 @@ function projectsSecAnimation() {
 
 
    tl.to("#projectsSec #fProj", {
-      left: "-4%",
-      top: "7%",
-      scale: 0.6,
+      left: "-6%",
+      top: "5.5%",
+      scale: 0.5,
       duration: .2,
    }, "aa")
 
 
    tl.from("#projectsSec .cont", {
-      x: "100%",
-      duration: .2,
+      x: "210vw",
+      duration: .5,
    }, "aa")
 
 
@@ -212,7 +267,7 @@ function projectsSecAnimation() {
    function xPercentCount(elem) {
       elem = document.querySelector("#projectsSec .cont")
       console.log();
-      return `-${(elem.childElementCount - 1) * 100}%`
+      return `-${(elem.childElementCount - 2) * 100}vw`
 
 
    }
@@ -277,6 +332,39 @@ function themeAnimation() {
 
 
 
+function handleForm() {
+
+   $("#contactForm").submit(function (e) {
+
+      // e.preventDefault();
+      var formElems = $("#contactForm input, #contactForm textarea");
+
+
+      $.ajax({
+         type: "POST",
+         url: "handleForm.php",
+         data: {
+            "uName": formElems[0].value,
+            "uEmail": formElems[1].value,
+            "uPhone": formElems[2].value,
+            "msg": formElems[3].value,
+
+         },
+         success: function (data) {
+            console.log('Submission was successful.');
+            console.log(data);
+         },
+         error: function (data) {
+            console.log('An error occurred.');
+            console.log(data);
+         },
+      });
+   });
+}
+
+
+
+
 var btns = document.querySelectorAll(".btn")
 
 btns.forEach((btn) => {
@@ -285,13 +373,7 @@ btns.forEach((btn) => {
 
 
 
-cursorMoveAnimation()
-autoScroll()
-initialAnimation()
-homeAnimation()
-projectsSecAnimation()
-quoteAnimation();
-themeAnimation()
+
 
 
 

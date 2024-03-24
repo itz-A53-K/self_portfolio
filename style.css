@@ -45,45 +45,75 @@ body {
     width: 100%;
 }
 
-body,#nav,#about {
+body,
+#nav,
+#about {
     transition: all 1s ease-in-out;
 }
 
 
-body[theme="default"]{
+body[theme="default"] {
     background-color: var(--bg-home);
     /* color: var(--text-primary); */
 
-    #nav,#about{
+    #nav,
+    #about {
         background-color: var(--bg-primary);
         color: var(--dark);
     }
-    
+
 }
-body[theme="dark"]{
-    
+
+body[theme="dark"] {
+
     background-color: var(--dark);
     color: var(--crimson);
 
-    #nav,#about{
+    #nav,
+    #about {
         background-color: var(--dark);
         color: var(--crimson);
-    }    
-    
+    }
+
+    #projectsSec,
+    #about * {
+        transition: color 1s ease-in-out;
+        color: var(--text-white) !important;
+    }
+
 }
 
-body[theme="light"]{
+body[theme="light"] {
 
     background-color: var(--bg-primary);
     color: var(--dark);
 
-    #nav,#about{
+    #nav,
+    #about {
         background-color: var(--bg-primary);
+        color: var(--dark);
+    }
+
+    #projectsSec {
+        transition: color 1s ease-in-out;
         color: var(--dark);
     }
 
 }
 
+
+
+.section {
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    color: black;
+}
 
 
 
@@ -127,7 +157,8 @@ ul li {
         gap: 35px;
         color: white;
     }
-    &:hover #cursor{
+
+    &:hover #cursor {
         scale: 2;
         border: 2px solid white;
         background-color: transparent;
@@ -155,18 +186,18 @@ ul li {
     z-index: 99;
     text-emphasis: none;
     cursor: none;
-    
-    
+
+
 }
 
-#cursor-bg {    
-    transform: translate(-50%,-50%);
+#cursor-bg {
+    transform: translate(-50%, -50%);
     position: fixed;
     border-radius: 50%;
     z-index: 5;
     height: 300px;
     width: 300px;
-    background-color: rgba(220, 20, 60, 0.25); 
+    background-color: rgba(220, 20, 60, 0.25);
     filter: blur(50px);
     /* box-shadow: 0px 0px 110px 50px rgba(220, 20, 60, 0.5); */
 }
@@ -187,7 +218,8 @@ ul li {
     border-bottom: 1px solid #83838339;
 
     cursor: none;
-    *{
+
+    * {
         cursor: none;
     }
 
@@ -217,29 +249,20 @@ ul li {
     position: relative;
     z-index: 10;
     background-color: transparent;
-    *{
+
+    * {
         cursor: none;
     }
-   
+
 }
 
-.section {
-    height: 100vh;
-    height: 100dvh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    overflow: hidden;
-    color: black;
-}
 
 #homeSec {
-    
+
     #part1,
     #about {
-        position: relative;
+        /* position: relative; */
         height: 100%;
         width: 100%;
         display: flex;
@@ -251,6 +274,7 @@ ul li {
 
 #homeSec #part1 .left {
     width: 70%;
+    position: relative;
 
     h4 {
         color: var(--crimson);
@@ -272,6 +296,7 @@ ul li {
             height: 60px;
             width: 30px;
             background-color: black;
+            position: relative;
         }
     }
 
@@ -292,8 +317,6 @@ ul li {
         width: 30px;
         background-color: var(--crimson);
         position: absolute;
-        left: 21.2%;
-        top: 34%;
     }
 
 }
@@ -324,46 +347,64 @@ ul li {
     border: 1px solid #424141;
     border-radius: 20px;
     padding: 10px;
-    /* z-index: 25; */
 }
 
 
 
 #homeSec #about {
-    display: flex;
     position: absolute;
     left: 0;
     top: 0;
     z-index: 30;
+
+    display: flex;
     flex-direction: column;
     padding: 0;
+    height: 100vh;
 
     .container {
-        display: flex;
-        gap: 3rem;
-        align-items: flex-end;
-        justify-content: space-between;
+        height: calc(100% - 70px);
         width: 75%;
         padding: 0 2rem;
+
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        justify-content: space-between;
     }
 
 }
 
 #homeSec #about .cont1 {
-    border-bottom: 2px solid #a9a6a6;
     margin: 2rem 0;
 
-    .img {
-        height: 100%;
+    .imgCont {
+        height: 80%;
         width: 25rem;
-        object-fit: cover;
-        object-position: top center;
+        overflow: hidden;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: top center;
+
+        }
     }
 
     .right {
         width: 60%;
-        height: 100%;
+        height: fit-content;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #a9a6a6;
+
+
         font-family: var(--font2);
+
 
         h1 {
             font-size: 7rem;
@@ -387,6 +428,10 @@ ul li {
     }
 }
 
+#homeSec #about .cont2 {
+    display: none !important;
+}
+
 
 
 
@@ -394,14 +439,13 @@ ul li {
 #projectsSec {
     height: 100vh;
     width: 100%;
-    /* justify-content: space-between; */
-    padding: 1rem;
+    padding: 0rem;
     position: relative;
-    color: white;
     padding-top: 70px !important;
+    padding-bottom: 1rem;
 }
 
-#projectsSec  #fProj {
+#projectsSec #fProj {
     line-height: 5rem;
     position: absolute;
     left: 50%;
@@ -420,44 +464,46 @@ ul li {
 }
 
 #projectsSec .cont {
-    width: 100%;
+    width: fit-content;
     height: 100vh;
-    /* padding: 0 2rem; */
-    
+
     display: flex;
-    align-items: flex-end;
+    /* align-items: flex-end; */
+    align-items: center;
     justify-content: start;
-    /* gap: 5rem; */
+    margin-top: 6rem;
 }
 
 
 
-#projectsSec .cont .card{
-    margin: 2rem 2.8rem;
-    width: 95%;
+#projectsSec .cont .card {
+    margin: 2rem 2rem;
+    padding: 1rem;
+    width: 96vw;
     height: 75%;
     display: flex;
-    gap: 4rem;
-    
+    gap: 2rem;
+    background-color: #9a9a9a25;
+
     border: 1px solid red;
     border-radius: 10px;
 
-    .imgCard{
-        width: 70vw;
+    .imgCard {
+        width: 70%;
+        box-shadow: 0px 0px 5px rgba(94, 93, 93, 0.437);
 
         img {
             border-radius: 10px;
             height: 100%;
             width: 100%;
             object-fit: cover;
-        } 
+        }
     }
 
     .textCard {
-        width: 30vw;
+        width: 30%;
         padding: 2rem 0;
-        /* text-wrap:wrap; */
-        
+        padding: 1rem;
         font-family: var(--font3);
 
         h1 {
@@ -474,23 +520,15 @@ ul li {
 
 
 
-#projectsSec .cont2 {
-    width: 40%;
-    height: 100%;
-    padding: 0 2rem;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
 
-    
-}
-
-
-#quoteSec{    
+#quoteSec {
     height: 60dvh !important;
+    border-top: 1.5px solid #71717160;
+    border-bottom: 1.5px solid #71717160;
+    margin-top: 3rem;
 }
-#quoteSec .quote{
+
+#quoteSec .quote {
     display: flex;
     width: 60%;
     height: 100%;
@@ -499,6 +537,7 @@ ul li {
 
     h1 {
         font-size: 2.5rem;
+        text-align: center;
     }
 
     i {
@@ -525,10 +564,10 @@ ul li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100dvh;
     width: 100%;
     padding: 1rem;
-    border-top: 1px solid #55555539;
+    margin: 3rem 0;
+
 }
 
 #contactSec .formCont {
@@ -647,14 +686,558 @@ ul li {
 
         textarea {
             resize: none;
-            height: 12dvh;
+            height: 12vh;
 
             &::-webkit-scrollbar {
                 display: none;
             }
-
         }
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+
+    #homeSec #about {
+        justify-content: flex-end;
+
+        .container {
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+            padding: 0 1rem;
+            margin: 0;
+        }
+
+    }
+
+    #homeSec #about .cont1 {
+        flex-direction: column;
+
+        .imgCont {
+            height: 43%;
+            width: 18rem;
+
+            img {
+                object-fit: fill;
+
+            }
+        }
+
+        .right {
+            width: 100%;
+            height: 57%;
+            overflow: hidden;
+
+            h1 {
+                font-size: 4rem;
+                line-height: 4rem;
+            }
+
+            .intro {
+                font-size: 1.5rem;
+                line-height: 30px;
+                margin: 1rem 0;
+
+            }
+
+            .description,
+            .description strong {
+                font-size: 1.1rem;
+                text-align: justify;
+            }
+        }
+    }
+
+
+
+    #projectsSec #fProj {
+        line-height: 3.5rem;
+        left: 2%;
+
+        h1 {
+            font-size: 3.5rem;
+
+            &:nth-child(1) {
+                letter-spacing: 0.5rem;
+                -webkit-text-stroke: 1px var(--crimson);
+                color: transparent;
+            }
+        }
+    }
+
+    #projectsSec .cont .card {
+        height: 40rem !important;
+        margin: 0.5rem !important;
+
+        .imgCard {
+            height: 55% !important;
+        }
+
+        .textCard {
+            height: 45% !important;
+            padding: 0.5rem !important;
+
+            h1 {
+                margin-top: 0.8rem;
+                font-size: 2.5rem !important;
+            }
+
+            p.intro {
+                font-size: 1rem !important;
+            }
+        }
+    }
+
+
+
+    #quoteSec {
+        height: 30rem !important;
+        padding: 2rem 1rem;
+    }
+
+    #quoteSec .quote {
+        width: 90%;
+
+        h1 {
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        i {
+            margin: 0 5px;
+            scale: 2;
+            font-size: 1rem;
+
+            &:nth-child(1) {
+                margin-top: -5rem;
+            }
+
+            &:nth-child(3) {
+                margin-top: 5.5rem;
+            }
+        }
+    }
+
+
+
+    #contactSec .formCont {
+        padding: 2rem 1rem !important;
+
+        >h1 {
+            font-size: 2.5rem;
+        }
+
+        >p {
+            font-size: 1.25rem;
+        }
+
+        .contactOption {
+            flex-direction: column;
+            align-items: center;
+
+            a.card {
+                width: 15rem;
+                justify-content: center;
+            }
+        }
+    }
+
+    #contactSec .formCont #contactForm {
+        gap: 1.3rem;
+
+        .elemWrapper {
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        .formElem {
+
+            label {
+                font-size: 1.15rem;
+            }
+        }
+    }
+
+
+
+    .btn {
+        font-size: 1.2rem !important;
+
+        i {
+            font-size: 1.2rem !important;
+        }
+    }
+
+
+
+
+
+}
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    #homeSec #about {
+        justify-content: end;
+
+        .container {
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+            padding: 1rem 2rem;
+            margin: 0.5rem 0;
+        }
+    }
+
+    #homeSec #about .cont1 {
+
+        .imgCont {
+            width: 150rem;
+            height: 20rem;
+
+        }
+
+        .right {
+            width: auto;
+
+            h1 {
+                font-size: 3.5rem;
+                line-height: 4rem;
+            }
+
+            .intro {
+                font-size: 1.5rem;
+                line-height: 35px;
+
+            }
+
+            .description,
+            .description strong {
+                font-size: 1.1rem;
+                text-align: justify;
+            }
+        }
+    }
+
+
+
+    #projectsSec #fProj {
+        line-height: 3.5rem;
+        left: 10%;
+
+        h1 {
+            font-size: 4rem;
+
+            &:nth-child(1) {
+                letter-spacing: 0.7rem;
+            }
+        }
+    }
+
+    #projectsSec .cont {
+        padding-bottom: 0rem !important;
+    }
+
+    #projectsSec .cont .card {
+
+        .imgCard {
+            height: 60% !important;
+        }
+
+        .textCard {
+            height: 40% !important;
+
+            h1 {
+                font-size: 2.5rem !important;
+            }
+
+            p.intro {
+                font-size: 1rem !important;
+            }
+        }
+    }
+
+
+
+    #quoteSec {
+        height: 80dvh !important;
+    }
+
+    #quoteSec .quote {
+        width: 80%;
+        padding: 2rem;
+
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        i {
+            scale: 2.5;
+
+            &:nth-child(1) {
+                margin-top: -6rem;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(180deg);
+                margin-top: 5rem;
+            }
+        }
+    }
+
+
+
+}
+
+
+@media (max-width: 768px) {
+
+
+
+
+
+
+
+
+    #contactSec .formCont {
+        width: 100%;
+        padding: 1.5rem;
+
+        >h1 {
+            margin-bottom: 1.5rem;
+        }
+
+
+        .contactOption {
+            margin-top: 1rem;
+
+            a.card {
+                &:nth-child(1) {
+                    color: white;
+                    background-color: rgb(10, 102, 194);
+                    border-color: rgb(10, 102, 194);
+                }
+
+                &:nth-child(2) {
+                    background-color: #c71610;
+                    border-color: #c71610;
+                    color: white;
+                }
+
+                &:nth-child(3) {
+                    background-color: #24292e;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    #contactSec .formCont #contactForm .formElem textarea {
+        height: 15vh;
+    }
+
+
+
+    .btn {
+        padding: 15px 5.5rem;
+        margin: 0.5rem;
+        gap: 35px;
+        color: white;
+
+
+        i {
+            font-size: 1.5rem;
+        }
+
+        &:hover {
+            margin: 0.5rem 1.5rem;
+            padding: 15px 5rem;
+            gap: 10px;
+            color: black;
+        }
+    }
+
+    .btn-crimson-outline {
+        border: 2px solid transparent;
+        background-color: var(--crimson);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.28);
+            border: 2px solid var(--crimson);
+        }
+    }
+
+
+    #cursor,
+    #cursor-bg {
+        display: none;
+    }
+
+
+
+
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    #homeSec #about {
+        justify-content: end;
+
+        .container {
+            gap: 1.5rem;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 2rem;
+            margin: 1rem 0;
+        }
+
+
+    }
+
+    #homeSec #about .cont1 {
+
+        .imgCont {
+            height: 20rem;
+            width: 40%;
+
+            img {
+                object-fit: fill;
+            }
+
+        }
+
+        .right {
+
+            h1 {
+                font-size: 4.5rem;
+                line-height: 4.5rem;
+            }
+
+            .intro {
+                font-size: 1.8rem;
+
+            }
+
+            .description,
+            .description strong {
+                font-size: 1.2rem;
+                text-align: justify;
+            }
+        }
+    }
+
+
+
+    #contactSec .formCont {
+        width: 85%;
+    }
+
+    #projectsSec #fProj {
+        left: 13%;
+    }
+
+
+
+
+    #quoteSec .quote {
+        width: 70%;
+
+        i {
+            &:nth-child(1) {
+                margin-top: -7rem;
+            }
+
+            &:nth-child(3) {
+                margin-top: 7rem;
+            }
+        }
+    }
+
+
+    #cursor,
+    #cursor-bg {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 1150px) {
+
+    #projectsSec .cont {
+        height: calc(100dvh - 70px);
+    }
+
+    #projectsSec .cont .card {
+        margin: 0.5rem 1rem;
+        height: 83%;
+        flex-direction: column;
+        gap: 0rem;
+
+        .imgCard {
+            width: 100%;
+            height: 65%;
+        }
+
+        .textCard {
+            width: 100%;
+            height: 35%;
+            padding: 0.8rem;
+            padding-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+                font-size: 3rem;
+                color: crimson;
+            }
+
+            p.intro {
+                margin-top: 0.8rem;
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #contactSec .formCont {
+        width: 75%;
+
+    }
+
+    #projectsSec #fProj {
+        left: 25%;
+    }
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* CSS rules for extra large devices */
 
 
 }
