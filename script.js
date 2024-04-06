@@ -53,7 +53,7 @@ function cursorMoveAnimation() {
    var crsrBG = document.querySelector("#cursor-bg")
 
    document.addEventListener("mousemove", function (dets) {
-      crsr.style.left = dets.x + 12 + "px"
+      crsr.style.left = dets.x + 10 + "px"
       crsr.style.top = dets.y - 5 + "px"
       crsrBG.style.left = dets.x + "px"
       crsrBG.style.top = dets.y + "px"
@@ -68,15 +68,15 @@ function crsrHov(elem) {
 
    elem.addEventListener("mouseenter", () => {
       crsrBG.style.scale = 0
-      crsr.style.scale = 2
+      crsr.style.scale = 1.5
       crsr.style.border = "1px solid white"
-      crsr.style.backgroundColor = "transparent"
+      crsr.style.boxShadow = "none"
    })
    elem.addEventListener("mouseleave", () => {
       crsrBG.style.scale = 1
       crsr.style.scale = 1
       crsr.style.border = "none"
-      crsr.style.backgroundColor = "rgb(255, 255, 255)"
+      crsr.style.boxShadow = "inset 0 0 20px 10px rgb(255, 255, 255)"
    })
 }
 
@@ -247,19 +247,20 @@ function projectsSecAnimation() {
       left: "-6%",
       top: "5.5%",
       scale: 0.5,
-      duration: .2,
+      duration: 1,
    }, "aa")
 
 
    tl.from("#projectsSec .cont", {
       x: "210vw",
-      duration: .5,
+      duration: 1.2,
    }, "aa")
 
 
 
    tl.to("#projectsSec .cont", {
       x: xPercentCount(),
+      duration: 3,
       ease: Power4,
    })
 
