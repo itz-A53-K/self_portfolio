@@ -22,8 +22,6 @@ $(document).ready(() => {
 
    i_spanPos = $("#part1 .i-span").position()
 
-   // $("#i-dot").css("left", i_spanPos.left + "px").css("top", i_spanPos.top - 25 + "px")
-
    gsap.set("#i-dot", {
       left: i_spanPos.left + "px",
       top: i_spanPos.top - 25 + "px",
@@ -36,10 +34,11 @@ $(document).ready(() => {
    projectsSecAnimation()
    quoteAnimation()
    themeAnimation()
-   handleForm()
+   populateF_Link()
 
 })
 
+handleForm()
 
 
 
@@ -83,7 +82,7 @@ function crsrHov(elem) {
 
 function autoScroll() {
 
-   var navlinks = document.querySelectorAll("#nav .navLinks .listItem")
+   var navlinks = document.querySelectorAll(".navLink")
    navlinks.forEach((link) => {
       crsrHov(link)
 
@@ -94,8 +93,6 @@ function autoScroll() {
          var elem = document.querySelector(`#${linkurlID}`)
 
          if (linkurlID == "home") {
-            console.log('fgio');
-
             gsap.to(window, { duration: 3, scrollTo: 0 });
          }
          else {
@@ -331,45 +328,122 @@ function themeAnimation() {
 }
 
 
+function populateF_Link() {
+
+   var socials =[
+      {
+         "link":"https://www.linkedin.com/in/abinash-kalita",
+         "class":"linkedin"
+      },
+      {
+         "link":"mailto:abikalita34@gmail.com",
+         "class":"envelope-fill"
+      },
+      {
+         "link":"https://github.com/itz-A53-K",
+         "class":"github"
+      }
+   ]
+
+   var html=""
+   socials.forEach(element => {
+       html +=`<a href="${element.link}" target="_blank" rel="noopener noreferrer" class="">
+         <i class="bi bi-${element.class}"></i>
+      </a>`;
+      
+      
+   });
+   
+   $("footer .socialLinks").html(html)
+}
+
+
+
+
+
+
+
+function showAlert(msg, type) {
+   var alertSec = $("#alertSec")
+
+   if (type == "success") {
+      alertSec.addClass("success").removeClass("danger").html(`<p>${msg}</p>`)
+   }
+   else if (type == "danger") {
+      alertSec.addClass("danger").removeClass("success").html(`<p>${msg}</p>`)
+
+   }
+
+   gsap.to(alertSec, {
+      right: "1%",
+      duration: 1,
+      ease: Power3
+   })
+   var audio = new Audio('message sound.mp3');
+   audio.play();
+
+
+   setTimeout(() => {
+      gsap.to(alertSec, {
+         right: "-100%",
+         duration: 1,
+         ease: Power3
+      })
+
+      alertSec.removeClass("danger").removeClass("success").html("")
+      
+   }, 4000);
+}
+
+
 
 
 function handleForm() {
 
-   $("#contactForm").submit(function (e) {
+   var contForm = $("#contactForm")
 
-      // e.preventDefault();
-      var formElems = $("#contactForm input, #contactForm textarea");
+   contForm.submit(function (e) {
+
+      e.preventDefault();
+      var formElems = $("#contactForm input, #contactForm textarea, #contactForm select");
+      var frmBtn = $("#contactForm button")
+
+      frmBtn.prop("disabled", true).html('Sanding <i class="bi bi-arrow-clockwise"></i>');
+
 
 
       $.ajax({
          type: "POST",
          url: "handleForm.php",
          data: {
-            "uName": formElems[0].value,
-            "uEmail": formElems[1].value,
-            "uPhone": formElems[2].value,
-            "msg": formElems[3].value,
-
+            uName: formElems[0].value,
+            uEmail: formElems[1].value,
+            uPhone: formElems[2].value,
+            type: formElems[3].value,
+            msg: formElems[4].value,
          },
          success: function (data) {
-            console.log('Submission was successful.');
-            console.log(data);
+
+            if (data.isSent == true) {
+               showAlert("Message Sent Succcessfully !", "success")
+               contForm.trigger("reset")
+            }
+            else {
+               showAlert("Try Again! Some error occured.", "danger")
+
+            }
+            frmBtn.prop("disabled", false).html('Send <i class="bi bi-arrow-right"></i>');
          },
-         error: function (data) {
-            console.log('An error occurred.');
-            console.log(data);
-         },
-      });
+      })
+
    });
 }
 
 
+var btns_n_link = document.querySelectorAll(".btn, .link")
 
-
-var btns = document.querySelectorAll(".btn")
-
-btns.forEach((btn) => {
-   crsrHov(btn)
+btns_n_link.forEach((item) => {
+   crsrHov(item)
 })
 
 

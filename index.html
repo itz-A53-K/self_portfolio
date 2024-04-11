@@ -4,10 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Abinash Kalita is a dynamic full-stack web developer from Assam, India, crafting visually stunning and high-performance websites. This is a Portfolio of Abinash Kalita.">
+    <title>Abinash Kalita</title>
     <title>Abinash Kalita</title>
 
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@5.0.0-beta.9/dist/locomotive-scroll.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Orbitron:wght@400..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Six+Caps&display=swap">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,10 +27,10 @@
     <nav class="nav" id="nav">
         <div class="container">
             <ul class="navLinks">
-                <li class="listItem" data-scrollto="home">Home</li>
-                <li class="listItem" data-scrollto="about">About</li>
-                <li class="listItem" data-scrollto="projectsSec">Works</li>
-                <li class="listItem" data-scrollto="contactSec">Contact</li>
+                <li class="listItem navLink" data-scrollto="home">Home</li>
+                <li class="listItem navLink" data-scrollto="about">About</li>
+                <li class="listItem navLink" data-scrollto="projectsSec">Works</li>
+                <li class="listItem navLink" data-scrollto="contactSec">Contact</li>
             </ul>
             <div class="hamburger"></div>
         </div>
@@ -41,7 +48,7 @@
                     <div id="i-dot"></div>
                 </div>
                 <div class="right">
-                    <img src="img/abi passport pic.jpg" alt="" id="myImg">
+                    <img src="img/abi passport pic with bg.webp" alt="" id="myImg">
                 </div>
 
                 <div id="scroll">Scroll ⬇</div>
@@ -49,7 +56,7 @@
             <div class="part2" id="about">
                 <div class="container cont1">
                     <div class="imgCont">
-                        <img src="img/abi passport pic.png" alt="" class="img">
+                        <img src="img/abi passport pic.webp" alt="" class="img">
 
                     </div>
 
@@ -57,7 +64,12 @@
                         <h1>about.</h1>
                         <p class="intro">I'm a full-stack web developer based in Assam, India.</p>
                         <p class="description">
-                            In 2020, I started my journey as a web developer and designer, sparking a passion for crafting innovative digital solutions. Through hands-on projects and problem-solving challenges, I honed my skills in <strong> database designing and backend integration</strong> with <strong>PHP, Django, MySql,</strong> and more. Over the years, I've refined my skills to efficiently design and develop a variety of web-based solutions, from standard websites to dynamic e-commerce platforms.
+                            In 2020, I started my journey as a web developer and designer, sparking a passion for
+                            crafting innovative digital solutions. Through hands-on projects and problem-solving
+                            challenges, I honed my skills in <strong> database designing and backend
+                                integration</strong> with <strong>PHP, Django, MySql,</strong> and more. Over the years,
+                            I've refined my skills to efficiently design and develop a variety of web-based solutions,
+                            from standard websites to dynamic e-commerce platforms.
                         </p>
                     </div>
                 </div>
@@ -80,8 +92,7 @@
             <div class="cont">
                 <div class="card">
                     <div class="imgCard">
-                        <img src="./img/foodFest.png"
-                            alt="">
+                        <img src="./img/foodFest.webp" alt="">
                     </div>
 
                     <div class="textCard">
@@ -95,8 +106,7 @@
 
                 <div class="card">
                     <div class="imgCard">
-                        <img src="./img/shoppingSite.png"
-                            alt="">
+                        <img src="./img/shoppingSite.webp" alt="">
                     </div>
 
                     <div class="textCard">
@@ -110,8 +120,7 @@
 
                 <div class="card">
                     <div class="imgCard">
-                        <img src="./img/codeDiscuss.png"
-                            alt="">
+                        <img src="./img/codeDiscuss.webp" alt="">
                     </div>
 
                     <div class="textCard ">
@@ -140,18 +149,30 @@
             <div class="formCont">
                 <h1>Contact Me</h1>
                 <form action="./handleForm.php" method="post" id="contactForm">
-                    <div class="formElem">
-                        <label for="uName">Your Name :</label>
-                        <input type="text" name="uName" id="uName" placeholder="Name">
+                    <div class="elemWrapper">
+                        <div class="formElem">
+                            <label for="uName">Your Name :</label>
+                            <input type="text" name="uName" id="uName" maxlength="30" required placeholder="Name">
+                        </div>
+                        <div class="formElem">
+                            <label for="uEmail">Your Email :</label>
+                            <input type="email" name="uEmail" id="uEmail" required placeholder="Email">
+                        </div>
+
                     </div>
                     <div class="elemWrapper">
                         <div class="formElem">
-                            <label for="uEmail">Your Email :</label>
-                            <input type="email" name="uEmail" id="uEmail" placeholder="Email">
+                            <label for="uPhone">Your Phone Number (Optional) :</label>
+                            <input type="tel" name="uPhone" id="uPhone" maxlength="10" minlength="10"
+                                placeholder="Phone Number">
                         </div>
                         <div class="formElem">
-                            <label for="uPhone">Your Phone Number (Optional) :</label>
-                            <input type="tel" name="uPhone" id="uPhone" placeholder="Phone Number">
+                            <label for="typeInp">Type :</label>
+                            <select name="type" id="typeInp" required>
+                                <option value="" disabled selected>Select message type</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="Work">Work</option>
+                            </select>
                         </div>
 
 
@@ -159,7 +180,8 @@
 
                     <div class="formElem">
                         <label for="msg">Message :</label>
-                        <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Your Message Here"></textarea>
+                        <textarea name="msg" id="msg" cols="30" rows="10" maxlength="1000" required
+                            placeholder="Your Message Here"></textarea>
                     </div>
                     <button type="submit" class="btn btn-crimson-outline">
                         Send
@@ -168,16 +190,16 @@
                 </form>
                 <p>OR</p>
                 <div class="contactOption">
-                    <a href="https://www.linkedin.com/in/abinash-kalita" target="_blank"
-                        rel="noopener noreferrer" class="card">
+                    <a href="https://www.linkedin.com/in/abinash-kalita" target="_blank" rel="noopener noreferrer"
+                        class="card">
                         <i class="bi bi-linkedin"></i>
                         <h1>Linkedin</h1>
                     </a>
-                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJftLwwLqqmkThZxWPfFQMSjGtqssbbLzCwzVQqQLLfCTTFZMXwxFkNRzHChJLcPmCVbMZL"
-                        target="_blank" rel="noopener noreferrer" class="card">
+                    <!-- <a href="mailto:abikalita34@gmail.com" target="_blank" rel="noopener noreferrer" class="card">
                         <i class="bi bi-envelope-fill"></i>
                         <h1>abikalita34@gmail.com</h1>
-                    </a>
+                    </a> -->
+
                     <a href="https://github.com/itz-A53-K" target="_blank" rel="noopener noreferrer" class="card">
                         <i class="bi bi-github"></i>
                         <h1>GitHub</h1>
@@ -188,27 +210,73 @@
 
 
 
-        voluptas! Ad voluptas laudantium consequatur dolor ex odit iusto consectetur sequi, harum nihil quasi beatae
-        quisquam sunt fugit quidem quae soluta at minus blanditiis. Nesciunt temporibus amet expedita sed at
-        perspiciatis mollitia necessitatibus quos tempora, inventore deserunt soluta fugiat aut ad quaerat, a fuga velit
-        suscipit. Fugit inventore fugiat dicta repudiandae praesentium consectetur odio accusamus quam? Voluptatibus,
-        pariatur beatae alias quam ab hic veniam omnis expedita aliquid molestias laudantium magni in dolores doloribus
-        temporibus voluptatem earum id quo nemo dolorum, illo ad! Expedita nisi non suscipit numquam soluta maiores
-        nesciunt officiis velit incidunt commodi quisquam omnis perspiciatis beatae error consequatur, consectetur,
-        mollitia porro ratione sint minima in? Voluptatem officia quibusdam quo consectetur rem nemo ex odio
-        perspiciatis quam, facilis unde placeat corrupti? Veniam, expedita sed. Nihil fugit architecto iusto accusamus
-        voluptatum voluptas assumenda pariatur. In, temporibus architecto. Provident illo consequuntur debitis expedita
-        nemo sapiente, vel tempora! Ex beatae quo, voluptates deserunt accusamus fugit, rem ipsum nobis rerum dolores,
-        obcaecati tempora ipsam in voluptas. Ipsam, sequi minus exercitationem et vitae harum quidem animi nostrum
-        accusamus eligendi aut consequatur odit earum voluptatibus in eveniet, iusto qui assumenda velit necessitatibus
-        nam maxime libero.
+        <footer>
+            <div class="fTop">
+                <div class="container">
+                    <h2>Abinash Kalita</h2>
+                    <p>A dynamic full-stack web developer from Assam, India, crafting visually stunning and
+                        high-performance websites. With a keen eye for detail, I specialize in delivering unique digital
+                        experiences that engage and delight users.</p>
+                </div>
+                <div class="container">
+                    <h1 class="head">Important Links</h1>
 
+                    <p class="navLink link" data-scrollto="home">Home</p>
+                    <p class="navLink link" data-scrollto="about">About</p>
+                    <p class="navLink link" data-scrollto="projectsSec">Works</p>
+                    <p class="navLink link" data-scrollto="contactSec">Contact</p>
+
+                </div>
+                <div class="container">
+                    <h1 class="head">Contact Info</h1>
+
+                    <p class="">
+                        <i class="bi bi-map"></i>
+                        Nalbari, Assam, India
+                    </p>
+
+                    <p class="">
+                        <a href="tel:+916000217218" class="link">
+                            <i class="bi bi-telephone"></i>
+                            +91 60002 17218
+                        </a>
+                    </p>
+
+                    <p class="">
+                        <a href="mailto:abikalita34@gmail.com" class="link">
+                            <i class="bi bi-envelope-fill"></i>
+                            abikalita34@gmail.com
+                        </a>
+                    </p>
+
+                    <p class="">
+                        <a href="" class="link">
+                            <i class="bi bi-globe-americas"></i>
+                            abikalita.rf.gd
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="fBottom">
+                <div>
+                    <h1>Copyright &copy; 2024. All rights reserved | <a href="" class="link">abikalita.rf.gd</a></h1>
+                    <p>Design & Developed by Abinash Kalita.</p>
+                </div>
+
+                <div class="socialLinks">
+                </div>
+            </div>
+
+        </footer>
 
 
 
 
     </main>
 
+
+    <section id="alertSec" class="">
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
 
@@ -222,7 +290,8 @@
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script src="script.js"></script>
 

@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Orbitron:wght@400..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Six+Caps&display=swap');
+@import url();
 
 
 @font-face {
     font-family: stretchPro;
-    src: url(./StretchPro.ttf);
+    src: url(/font/StretchPro.woff2);
+    font-display: swap;
 }
 
 @font-face {
     font-family: proximaNova;
-    src: url(./Proxima-Nova.ttf);
+    src: url(/font/Proxima-Nova.woff2);
+    font-display: swap;
 }
 
 
@@ -100,6 +102,10 @@ body[theme="light"] {
 
 }
 
+.link{
+    color: lightblue !important;
+}
+
 
 
 .section {
@@ -144,7 +150,6 @@ ul li {
     display: flex;
     gap: 10px;
     cursor: none;
-    background-color: rgba(255, 255, 255, 0.28);
 
     i {
         font-size: 1.5rem;
@@ -173,6 +178,28 @@ ul li {
     }
 }
 
+.btn i.bi-arrow-clockwise {
+    scale: 1.1;
+    animation: rotate 0.5s linear infinite;
+}
+
+.btn:disabled {
+    background-color: #e04f6a;
+    color: white;
+    margin: 0.5rem;
+    padding: 15px 5.5rem;
+    gap: 35px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 
 #cursor {
@@ -198,7 +225,7 @@ ul li {
     width: 300px;
     background-color: rgba(220, 20, 60, 0.25);
     filter: blur(50px);
-    transition:  SCALE 0.2S ease-in-out;
+    transition: SCALE 0.2S ease-in-out;
 }
 
 
@@ -457,7 +484,7 @@ ul li {
 #projectsSec .cont {
     width: fit-content;
     height: 100vh;
-    transform:  translateX(100vw);
+    transform: translateX(100vw);
     display: flex;
     align-items: center;
     justify-content: start;
@@ -575,7 +602,7 @@ ul li {
     }
 
     >p {
-        color: rgb(97, 97, 97);
+        color: #332e2e;
         font-family: var(--font3);
         font-weight: 600;
         text-align: center;
@@ -615,7 +642,7 @@ ul li {
                 }
             }
 
-            &:nth-child(2) {
+            /* &:nth-child(2) {
                 color: #c71610;
 
                 &:hover {
@@ -623,9 +650,9 @@ ul li {
                     border-color: #c71610;
                     color: white;
                 }
-            }
+            } */
 
-            &:nth-child(3) {
+            &:nth-child(2) {
                 color: #24292e;
 
                 &:hover {
@@ -663,7 +690,8 @@ ul li {
         }
 
         input,
-        textarea {
+        textarea,
+        select {
             padding: 12px 10px;
             outline: none;
             border: none;
@@ -683,6 +711,134 @@ ul li {
             }
         }
     }
+}
+
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    font-family: var(--font2);
+
+    *{
+        color: white;
+    }
+
+    .fTop,.fBottom{
+        
+        display: flex;
+        width: 100%;
+
+    }
+
+    
+}
+
+
+footer .fTop{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem 1rem;
+    padding: 2rem 15rem;
+
+    .container{
+        width: 15rem;
+
+        .head{
+            font-weight: normal;
+            font-size: 1.4em;
+        }
+        
+        p{
+            font-size: 1.05em;
+            font-weight: normal;
+            margin: 10px 0;
+            width: fit-content;
+
+            i{
+                margin-right: 10px;
+            }
+
+        }
+        
+    }
+
+    .container:nth-child(1){
+        width: 25rem;
+        h2{
+            font-size: 2.5rem;
+        }
+        
+    }
+}
+
+
+
+footer .fBottom{
+    padding: 0.2rem 15rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: rgb(48, 48, 48);
+
+    p{
+        font-size: 0.85em;
+    }
+    h1, h1 a{
+        font-size: 1.05em;
+        font-weight: 400;
+    }
+    
+
+
+    .socialLinks{
+        display: flex;
+        font-family: none;
+        
+        gap: 1rem;
+        padding: 10px 0;
+
+        a{
+            border: 1px solid whitesmoke;
+            padding: 5px;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#alertSec {
+    position: fixed;
+    top: 3rem;
+    right: -100%;
+    z-index: 100;
+    width: 250px;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+#alertSec.danger {
+    background-color: var(--crimson);
+    color: #4a060d;
+}
+
+#alertSec.success {
+    color: #051b11;
+    background-color: #75b791;
 }
 
 
@@ -865,6 +1021,21 @@ ul li {
         }
     }
 
+    #contactSec textarea{
+        height: 20vh !important;
+    }
+
+    footer .fBottom{
+        text-align: center;
+        justify-content: center;
+    }
+    footer>div{
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+
+
 
 
     .btn {
@@ -993,6 +1164,10 @@ ul li {
         }
     }
 
+    footer>div{
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+    }
 
 
 }
@@ -1026,13 +1201,13 @@ ul li {
                     border-color: rgb(10, 102, 194);
                 }
 
-                &:nth-child(2) {
+                /* &:nth-child(2) {
                     background-color: #c71610;
                     border-color: #c71610;
                     color: white;
-                }
+                } */
 
-                &:nth-child(3) {
+                &:nth-child(2) {
                     background-color: #24292e;
                     color: white;
                 }
@@ -1043,6 +1218,8 @@ ul li {
     #contactSec .formCont #contactForm .formElem textarea {
         height: 15vh;
     }
+
+
 
 
 
@@ -1072,6 +1249,13 @@ ul li {
         &:hover {
             background-color: rgba(255, 255, 255, 0.28);
             border: 2px solid var(--crimson);
+        }
+    }
+    .btn:disabled {
+        background-color: #b1b0b0;
+        &:hover{
+            border: #b1b0b0;
+            background-color: #b1b0b0;
         }
     }
 
