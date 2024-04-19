@@ -1,13 +1,13 @@
 
 @font-face {
     font-family: stretchPro;
-    src: url('/font/StretchPro.woff2');
+    src: url('./font/StretchPro.woff2');
     font-display: swap;
 }
 
 @font-face {
     font-family: proximaNova;
-    src: url('/font/Proxima-Nova.woff2');
+    src: url('./font/Proxima-Nova.woff2');
     font-display: swap;
 }
 

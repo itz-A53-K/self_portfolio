@@ -534,13 +534,13 @@ function handleForm() {
       var formElems = $("#contactForm input, #contactForm textarea, #contactForm select");
       var frmBtn = $("#contactForm button")
 
-      frmBtn.prop("disabled", true).html('Sanding <i class="bi bi-arrow-clockwise"></i>');
+      frmBtn.prop("disabled", true).html('Sending <i class="bi bi-arrow-clockwise"></i>');
 
 
 
       $.ajax({
          type: "POST",
-         url: "handleForm.php",
+         url: "./handleForm.php",
          data: {
             uName: formElems[0].value,
             uEmail: formElems[1].value,
@@ -549,6 +549,8 @@ function handleForm() {
             msg: formElems[4].value,
          },
          success: function (data) {
+            console.log(data);
+            
 
             if (data.isSent == true) {
                showAlert("Message Sent Succcessfully !", "success")
@@ -560,6 +562,10 @@ function handleForm() {
             }
             frmBtn.prop("disabled", false).html('Send <i class="bi bi-arrow-right"></i>');
          },
+         error: function(data){
+            console.log(data);
+            
+         }
       })
 
    });

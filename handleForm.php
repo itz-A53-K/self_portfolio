@@ -14,9 +14,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
     
     
-    require 'phpMailer/PHPMailer.php';
-    require 'phpMailer/SMTP.php';
-    require 'phpMailer/Exception.php';
+    require './phpMailer/PHPMailer.php';
+    require './phpMailer/SMTP.php';
+    require './phpMailer/Exception.php';
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();
 
@@ -27,8 +27,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $mail->SMTPAuth   = true;                             
         $mail->Username   = 'test.mailotp96@gmail.com';       
         $mail->Password   = 'kmngwrkcpnszmagu';                      
-        $mail->SMTPSecure = 'tls'; 
-        $mail->Port       = 587;
+        // $mail->SMTPSecure = 'tls'; 
+        $mail->Port       = 25;
         $mail->FromName   = "Abi Portfolio";
         $mail->From       = "test.mailotp96@gmail.com";
 
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
         
     } catch (Exception $e) {
-        $dataMsg= "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        $dataMsg += "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 
 
