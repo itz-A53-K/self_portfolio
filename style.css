@@ -1,5 +1,3 @@
-@import url();
-
 
 @font-face {
     font-family: stretchPro;
@@ -1471,7 +1469,7 @@ footer .fBottom {
         }
     }
 
-    
+
     footer>div{
         padding-left: 5rem !important;
         padding-right: 5rem !important;
