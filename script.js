@@ -549,9 +549,7 @@ function handleForm() {
             msg: formElems[4].value,
          },
          success: function (data) {
-            console.log(data);
             
-
             if (data.isSent == true) {
                showAlert("Message Sent Succcessfully !", "success")
                contForm.trigger("reset")
@@ -562,10 +560,6 @@ function handleForm() {
             }
             frmBtn.prop("disabled", false).html('Send <i class="bi bi-arrow-right"></i>');
          },
-         error: function(data){
-            console.log(data);
-            
-         }
       })
 
    });

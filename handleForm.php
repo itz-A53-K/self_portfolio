@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $mail->SMTPAuth   = true;                             
         $mail->Username   = 'test.mailotp96@gmail.com';       
         $mail->Password   = 'kmngwrkcpnszmagu';                      
-        // $mail->SMTPSecure = 'tls'; 
+        $mail->SMTPSecure = 'tls'; 
         $mail->Port       = 25;
         $mail->FromName   = "Abi Portfolio";
         $mail->From       = "test.mailotp96@gmail.com";
