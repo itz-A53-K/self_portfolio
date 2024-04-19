@@ -28,7 +28,7 @@ $(document).ready(() => {
    var i_spanTop = i_spanPos.top - 25
 
    if ((window.matchMedia("(max-width: 575.99px)")).matches) {
-      i_spanTop = i_spanPos.top - 14
+      i_spanTop = i_spanPos.top - 15
    }
    gsap.set("#i-dot", {
       left: i_spanPos.left + "px",
