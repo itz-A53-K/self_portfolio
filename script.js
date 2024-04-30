@@ -4,8 +4,8 @@
          smoothWheel: true,
          smoothTouch: true,
          wheelMultiplier: 0.25,
-         touchMultiplier: 0.4,
-         easing: 'easeInOut',
+         touchMultiplier: 0.8,
+         // easing: 'easeInOut',
 
       }
    });
@@ -17,7 +17,7 @@ $(window).resize(function () {
 
 });
 $(window).on('beforeunload', function () {
-   $(window).scrollTop(0);
+   $(window).scrollTop(0); 
 });
 
 var i_spanPos;
@@ -43,6 +43,7 @@ $(document).ready(() => {
    }, 1500);
 
    homeAnimation()
+   navMenuAnimation()
    populate_featuredProjects()
    projectsSecAnimation()
    quoteAnimation()
@@ -57,9 +58,36 @@ handleForm()
 
 
 
+var navTL
 
 
+function navMenuAnimation() {
+   navTL= gsap.timeline({paused: true})
 
+   navTL.from("#nav .menu",{
+      right: "-110%",
+      duration: 0.5
+   })
+   navTL.from("#nav .menu i",{
+      rotate: 180
+   },"a")
+   navTL.from("#nav .navLinks li, #nav .menu i",{
+      x: "150%",
+      duration: 0.6,
+      opacity: 0,
+      stagger: 0.2,
+   },"a")
+
+   $("#nav .hamburger").click(function(){
+      navTL.play()
+      
+   })
+   $("#nav .menu i").click(function(){
+      navTL.reverse()
+      
+   })
+   
+}
 
 function cursorMoveAnimation() {
    var crsr = document.querySelector("#cursor")
@@ -105,6 +133,8 @@ function autoScroll() {
 
       link.addEventListener("click", () => {
          var elem = document.querySelector(`#${linkurlID}`)
+
+         navTL.reverse()
 
          if (linkurlID == "home") {
             gsap.to(window, { duration: 3, scrollTo: 0 });
