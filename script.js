@@ -18,7 +18,7 @@ $(window).resize(function () {
 
 
 $(window).on('beforeunload', function () {
-   $(window).scrollTop(0); 
+  
 });
 
 var i_spanPos;
@@ -51,6 +51,7 @@ $(document).ready(() => {
    }, 1000);
 
    setTimeout(() => {
+      $(window).scrollTop(0); 
       loaderClose()
    }, 4000);
 
@@ -584,41 +585,45 @@ function handleForm() {
 
    var contForm = $("#contactForm")
 
-   contForm.submit(function (e) {
+   // contForm.submit(function (e) {
 
-      e.preventDefault();
-      var formElems = $("#contactForm input, #contactForm textarea, #contactForm select");
-      var frmBtn = $("#contactForm button")
+   //    e.preventDefault();
+   //    var formElems = $("#contactForm input, #contactForm textarea, #contactForm select");
+   //    var frmBtn = $("#contactForm button")
 
-      frmBtn.prop("disabled", true).html('Sending <i class="bi bi-arrow-clockwise"></i>');
+   //    frmBtn.prop("disabled", true).html('Sending <i class="bi bi-arrow-clockwise"></i>');
 
 
 
-      $.ajax({
-         type: "POST",
-         url: "./handleForm.php",
-         data: {
-            uName: formElems[0].value,
-            uEmail: formElems[1].value,
-            uPhone: formElems[2].value,
-            type: formElems[3].value,
-            msg: formElems[4].value,
-         },
-         success: function (data) {
+   //    $.ajax({
+   //       type: "POST",
+   //       url: "./handleForm.php",
+   //       data: {
+   //          uName: formElems[0].value,
+   //          uEmail: formElems[1].value,
+   //          uPhone: formElems[2].value,
+   //          type: formElems[3].value,
+   //          msg: formElems[4].value,
+   //       },
+   //       success: function (data) {
             
-            if (data.isSent == true) {
-               showAlert("Message Sent Succcessfully !", "success")
-               contForm.trigger("reset")
-            }
-            else {
-               showAlert("Try Again! Some error occured.", "danger")
+   //          if (data.isSent == true) {
+   //             showAlert("Message Sent Succcessfully !", "success")
+   //             contForm.trigger("reset")
+   //          }
+   //          else {
+   //             showAlert("Try Again! Some error occured.", "danger")
 
-            }
-            frmBtn.prop("disabled", false).html('Send <i class="bi bi-arrow-right"></i>');
-         },
-      })
+   //          }
+   //          frmBtn.prop("disabled", false).html('Send <i class="bi bi-arrow-right"></i>');
+   //       },
+   //       error: function(err){
+   //          console.log(err);
+            
+   //       }
+   //    })
 
-   });
+   // });
 }
 
 
