@@ -14,14 +14,46 @@
 
 
 $(window).resize(function () {
-
 });
+
+
 $(window).on('beforeunload', function () {
    $(window).scrollTop(0); 
 });
 
 var i_spanPos;
 $(document).ready(() => {
+
+
+   var loaderTL= gsap.timeline()
+   loaderTL.to("#loader h2",{
+      y: "0%",
+      opacity: 1,
+      duration: 1
+   })
+   loaderTL.to("#loader >div",{
+      opacity: 1,
+      duration: 1
+   })
+
+   setInterval(() => {
+      var t = gsap.timeline()
+      t.to("#loader .line",{
+         height: "2rem",
+         duration: 0.1,
+         stagger: 0.1
+      })
+      t.to("#loader .line",{
+         height: "1rem",
+         duration: 0.1,
+         stagger: 0.1
+      })      
+   }, 1000);
+
+   setTimeout(() => {
+      loaderClose()
+   }, 4000);
+
 
 
    i_spanPos = $("#part1 .i-span").position()
@@ -35,22 +67,18 @@ $(document).ready(() => {
       top: i_spanTop + "px",
    })
 
+
+
    cursorMoveAnimation()
-   autoScroll()
-
-   setTimeout(() => {
-      initialAnimation()
-   }, 1500);
-
+   autoScroll()   
    homeAnimation()
    navMenuAnimation()
    populate_featuredProjects()
    projectsSecAnimation()
    quoteAnimation()
-   footerAnimation()
-
+   footerAnimation()   
    themeAnimation()
-
+   
 })
 
 handleForm()
@@ -148,14 +176,15 @@ function autoScroll() {
 }
 
 
-function initialAnimation() {
+function loaderClose() {
+
    var tl = gsap.timeline({
       onComplete: () => {
          $("#main").css("height", "auto").css("overflow", "auto")
       }
    })
 
-   tl.to("#coverBox", {
+   tl.to("#loader", {
       y: "-100%",
       opacity: 0,
       duration: .5
@@ -235,8 +264,6 @@ function homeAnimation() {
 
    }
    else {
-
-
       tl1.to("#i-dot", {
          scale: 62,
          rotate: 360,
@@ -255,7 +282,6 @@ function homeAnimation() {
    tl1.from("#homeSec #about .cont1 .imgCont", {
       x: -100,
       opacity: 0,
-      // delay: 1,
    }, "part2Elem")
 
    tl1.from("#homeSec #about .cont1 .right", {
@@ -355,11 +381,11 @@ function projectsSecAnimation() {
       }, "aa")
 
    }
-   else if ((window.matchMedia("(max-width: 767.98px)")).matches && (window.matchMedia("(min-width: 576px)")).matches) {
+   else if ((window.matchMedia("(max-width: 768px)")).matches && (window.matchMedia("(min-width: 576px)")).matches) {
 
       tl.to("#projectsSec #fProj", {
          left: "-8%",
-         top: "7.5%",
+         top: "7%",
          scale: 0.6,
          duration: 1,
       }, "aa")
@@ -601,6 +627,8 @@ var btns_n_link = document.querySelectorAll(".btn, .link")
 btns_n_link.forEach((item) => {
    crsrHov(item)
 })
+
+
 
 
 

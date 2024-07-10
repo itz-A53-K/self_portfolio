@@ -213,7 +213,7 @@ ul li {
 
 
 
-#coverBox {
+#loader {
     height: 100vh;
     width: 100%;
     position: fixed;
@@ -221,10 +221,36 @@ ul li {
     left: 0;
     z-index: 150;
     background-color: rgb(194, 194, 194);
+    cursor: default !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: default !important;
+    flex-direction: column;
+
+    h2 {
+        font-family: var(--font1);
+        font-weight: 400;
+        font-size: 2em;
+        opacity: 0;
+        transform: translate(0px, 100%);
+    }
+
+    >div {
+        opacity: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
+
+        .line {
+            height: 1rem;
+            width: 10px;
+            margin: 5px;
+            background-color: var(--crimson);
+            transition: all 0.2s ease-in-out;
+        }
+    }
 }
 
 
@@ -282,7 +308,7 @@ ul li {
         align-items: center;
         padding: 4rem;
         border-left: 1px solid rgba(128, 128, 128, 0.4);
-        background-color: rgba(255, 255, 255, 0.65);
+        background-color: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(12px);
         box-shadow: 0 0 30px #ffffe9;
         height: 100%;
@@ -313,12 +339,13 @@ ul li {
 
         .navLinks li {
             width: fit-content;
-            font-size: 3.5rem;
-            font-weight: 600;
+            font-size: 2.5rem;
             color: currentColor;
             padding: 5px 10px;
             letter-spacing: 3px;
             transition: letter-spacing 0.4s ease-in-out;
+            font-family: var(--font1);
+            font-weight: 400;
 
             &:hover {
                 letter-spacing: 10px;
@@ -557,6 +584,7 @@ ul li {
         .description strong {
             font-size: 1.2rem;
             color: rgb(51, 51, 51);
+            text-align: justify;
         }
     }
 }
@@ -889,6 +917,7 @@ footer .fTop {
             font-weight: normal;
             margin: 10px 0;
             width: fit-content;
+            text-align: justify;
 
             i {
                 margin-right: 10px;
@@ -1020,467 +1049,65 @@ footer .fBottom {
 
 
 
-
-
-
-
-/* Extra small devices (phones, less than 576px) */
-@media (max-width: 575.98px) {
-
-    #nav {
-        padding: 0 1.5rem;
-
-        .menu {
-            width: 100%;
-        }
-    }
-
-    #homeSec #part1 {
-        padding: 0;
-
-        .left {
-            padding: 0 1rem;
-            width: 100%;
-
-            h4 {
-                font-size: 1.3rem;
-                margin-bottom: 15px;
-            }
-
-            h1 {
-                font-size: 4rem;
-                line-height: 65px;
-
-                span.i-span {
-                    height: 32px;
-                    width: 15px;
-                }
-            }
-
-            .h2cont {
-                flex-direction: column;
-                gap: 5px 10px;
-
-                h2,
-                h2 span {
-                    font-size: 1.5rem;
-                }
-            }
-
-
-            #i-dot {
-                height: 12px;
-                width: 14px;
-            }
-        }
-
-        .right {
-            display: none;
-        }
-    }
-
-
-    #homeSec #about {
-        justify-content: flex-end;
-
-        .container {
-            gap: 1rem;
-            justify-content: center;
-            width: 100%;
-            padding: 0 1rem;
-            margin: 0;
-        }
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #contactSec .formCont {
+        width: 75%;
 
     }
-
-    #homeSec #about .cont1 {
-        flex-direction: column;
-
-        .imgCont {
-            height: 43%;
-            width: 18rem;
-
-            img {
-                object-fit: fill;
-
-            }
-        }
-
-        .right {
-            width: 100%;
-            height: 57%;
-            overflow: hidden;
-
-            h1 {
-                font-size: 4rem;
-                line-height: 4rem;
-            }
-
-            .intro {
-                font-size: 1.5rem;
-                line-height: 30px;
-                margin: 1rem 0;
-
-            }
-
-            .description,
-            .description strong {
-                font-size: 1.1rem;
-                text-align: justify;
-            }
-        }
-    }
-
-
 
     #projectsSec #fProj {
-        line-height: 3.5rem;
-        left: 2%;
-
-        h1 {
-            font-size: 3.5rem;
-
-            &:nth-child(1) {
-                letter-spacing: 0.5rem;
-                -webkit-text-stroke: 1px var(--crimson);
-                color: transparent;
-            }
-        }
+        left: 25%;
     }
-
-    #projectsSec .cont .card {
-        padding: 0 1rem;
-
-        .imgCard {
-            height: 55% !important;
-        }
-
-        .textCard {
-            height: 45% !important;
-            padding: 0rem !important;
-
-            h1 {
-                margin-top: 0rem;
-                font-size: 2.5rem !important;
-            }
-
-            p.intro {
-                font-size: 1rem !important;
-            }
-        }
-    }
-
-
-
-    #quoteSec {
-        height: 35rem !important;
-        padding: 2rem 1rem;
-    }
-
-    #quoteSec .quote {
-        width: 95%;
-        gap: 7px;
-
-        h1 {
-            font-size: 1.3rem;
-            text-align: center;
-        }
-
-        i {
-            margin: 0 5px;
-            scale: 2;
-            font-size: 1rem;
-
-        }
-    }
-
-
-
-    #contactSec .formCont {
-        padding: 2rem 1rem !important;
-
-        >h1 {
-            font-size: 2.5rem;
-        }
-
-        >p {
-            font-size: 1.25rem;
-        }
-
-        .contactOption {
-            flex-direction: column;
-            align-items: center;
-
-            a.card {
-                width: 15rem;
-                justify-content: center;
-            }
-        }
-    }
-
-    #contactSec .formCont #contactForm {
-        gap: 1.3rem;
-
-        .elemWrapper {
-            flex-direction: column;
-            gap: 1.3rem;
-        }
-
-        .formElem {
-
-            label {
-                font-size: 1.15rem;
-            }
-        }
-    }
-
-    #contactSec textarea {
-        height: 20vh !important;
-    }
-
-    footer .fBottom {
-        padding: 0.8rem 15rem;
-        text-align: center;
-        justify-content: center;
-    }
-
-    footer>div {
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
-    }
-
-
-
-
-
-    .btn {
-        font-size: 1.2rem !important;
-
-        i {
-            font-size: 1.2rem !important;
-        }
-    }
-
-
-
-
 
 }
 
-/* Small devices (phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-
-    #nav .menu {
-        width: 60%;
-    }
+@media (max-width: 1150px) {
 
     #homeSec #about {
-        justify-content: end;
-
         .container {
-            gap: 1rem;
-            justify-content: center;
-            width: 100%;
-            padding: 1rem 2rem;
-            margin: 0.5rem 0;
-        }
-    }
-
-    #homeSec #about .cont1 {
-
-        .imgCont {
-            width: 150rem;
-            height: 20rem;
-
-        }
-
-        .right {
-            width: auto;
-
-            h1 {
-                font-size: 3.5rem;
-                line-height: 4rem;
-            }
-
-            .intro {
-                font-size: 1.5rem;
-                line-height: 35px;
-
-            }
-
-            .description,
-            .description strong {
-                font-size: 1.1rem;
-                text-align: justify;
-            }
-        }
-    }
-
-
-
-    #projectsSec #fProj {
-        line-height: 3.5rem;
-        left: 10%;
-
-        h1 {
-            font-size: 4rem;
-
-            &:nth-child(1) {
-                letter-spacing: 0.7rem;
-            }
+            width: 95%;
         }
     }
 
     #projectsSec .cont {
-        padding-bottom: 0rem !important;
+        height: calc(100dvh - 70px);
     }
 
     #projectsSec .cont .card {
+        height: 85%;
+
+        .cardCont{
+            gap: 0.5rem;
+        }
 
         .imgCard {
-            height: 60% !important;
+            width: 65%;
         }
 
         .textCard {
-            height: 40% !important;
+            width: 35%;
+            padding: 0.8rem;
+            padding-bottom: 0;
+            margin-top: 1rem;
 
             h1 {
-                font-size: 2.5rem !important;
+                font-size: 2.5rem;
+                color: crimson;
             }
 
             p.intro {
-                font-size: 1rem !important;
+                font-size: 1.1rem;
             }
         }
     }
 
-
-
-    #quoteSec {
-        height: 80dvh !important;
-    }
-
-    #quoteSec .quote {
-        width: 80%;
-        padding: 2rem;
-
-
-        h1 {
-            font-size: 1.8rem;
-        }
-
-        i {
-            scale: 2.5;
-
-            &:nth-child(1) {
-                margin-top: -15rem;
-            }
-
-            &:nth-child(3) {
-                margin-top: 15rem;
-            }
+    footer {
+        .fTop, .fBottom {
+            padding-left: 5rem;
+            padding-right: 5rem;
         }
     }
-
-    footer>div {
-        padding-left: 3rem !important;
-        padding-right: 3rem !important;
-    }
-
-
-}
-
-
-@media (max-width: 768px) {
-
-
-    #contactSec .formCont {
-        width: 100%;
-        padding: 1.5rem;
-
-        >h1 {
-            margin-bottom: 1.5rem;
-        }
-
-
-        .contactOption {
-            margin-top: 1rem;
-
-            a.card {
-                &:nth-child(1) {
-                    color: white;
-                    background-color: rgb(10, 102, 194);
-                    border-color: rgb(10, 102, 194);
-                }
-
-                /* &:nth-child(2) {
-                    background-color: #c71610;
-                    border-color: #c71610;
-                    color: white;
-                } */
-
-                &:nth-child(2) {
-                    background-color: #24292e;
-                    color: white;
-                }
-            }
-        }
-    }
-
-    #contactSec .formCont #contactForm .formElem textarea {
-        height: 15vh;
-    }
-
-
-
-
-
-    .btn {
-        padding: 15px 5.5rem;
-        margin: 0.5rem;
-        gap: 35px;
-        color: white;
-
-
-        i {
-            font-size: 1.5rem;
-        }
-
-        &:hover {
-            margin: 0.5rem 1.5rem;
-            padding: 15px 5rem;
-            gap: 10px;
-            color: black;
-        }
-    }
-
-    .btn-crimson-outline {
-        border: 2px solid transparent;
-        background-color: var(--crimson);
-
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.28);
-            border: 2px solid var(--crimson);
-        }
-    }
-
-    .btn:disabled {
-        background-color: #b1b0b0;
-
-        &:hover {
-            border: #b1b0b0;
-            background-color: #b1b0b0;
-        }
-    }
-
-
-    #cursor,
-    #cursor-bg {
-        display: none;
-    }
-
-
-
 
 }
 
@@ -1565,8 +1192,8 @@ footer .fBottom {
 
 
     footer>div {
-        padding-left: 5rem !important;
-        padding-right: 5rem !important;
+        padding-left: 5rem;
+        padding-right: 5rem;
     }
 
 
@@ -1577,66 +1204,580 @@ footer .fBottom {
 
 }
 
-
-@media (max-width: 1150px) {
-
-    #projectsSec .cont {
-        height: calc(100dvh - 70px);
-    }
-
+@media(max-width: 991.98px){
     #projectsSec .cont .card {
         height: 85%;
 
-        .cardCont {
+        .cardCont{
             flex-direction: column;
             gap: 0rem;
-
         }
 
         .imgCard {
             width: 100%;
-            height: 65%;
+            height: 63%;
         }
 
         .textCard {
             width: 100%;
-            height: 35%;
+            height: 37%;
             padding: 0.8rem;
             padding-bottom: 0;
-            display: flex;
-            flex-direction: column;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
 
             h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
                 color: crimson;
             }
 
-            p.intro {
-                margin-top: 0.8rem;
-                font-size: 1.25rem;
+            p.intro, p.skill {
+                font-size: 1.1rem;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        
+    }
+}
+
+@media (max-width: 768px) {
+
+    #homeSec #part1{
+        padding: 0 2rem;
+        .left{
+            width: 100%;
+            h1{
+                font-size: 5.5rem;
+                span.i-span {
+                    height: 47px;
+                    width: 20px;
+                }
+            }
+            #i-dot {
+                height: 16px;
+                width: 20px;
+            }
+        }
+
+   .right {
+        display: none;
+    }
+    }
+   
+
+    #contactSec .formCont {
+        width: 100%;
+        padding: 1.5rem;
+
+        >h1 {
+            margin-bottom: 1.5rem;
+        }
+
+
+        .contactOption {
+            margin-top: 1rem;
+
+            a.card {
+                &:nth-child(1) {
+                    color: white;
+                    background-color: rgb(10, 102, 194);
+                    border-color: rgb(10, 102, 194);
+                }
+
+                /* &:nth-child(2) {
+                    background-color: #c71610;
+                    border-color: #c71610;
+                    color: white;
+                } */
+
+                &:nth-child(2) {
+                    background-color: #24292e;
+                    color: white;
+                }
             }
         }
     }
 
+    #contactSec .formCont #contactForm .formElem textarea {
+        height: 15vh;
+    }
+
+    footer {
+        .fTop, .fBottom {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+
+
+
+
+    .btn {
+        padding: 15px 5.5rem;
+        margin: 0.5rem;
+        gap: 35px;
+        color: white;
+
+
+        i {
+            font-size: 1.5rem;
+        }
+
+        &:hover {
+            margin: 0.5rem 1.5rem;
+            padding: 15px 5rem;
+            gap: 10px;
+            color: black;
+        }
+    }
+
+    .btn-crimson-outline {
+        border: 2px solid transparent;
+        background-color: var(--crimson);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.28);
+            border: 2px solid var(--crimson);
+        }
+    }
+
+    .btn:disabled {
+        background-color: #b1b0b0;
+
+        &:hover {
+            border: #b1b0b0;
+            background-color: #b1b0b0;
+        }
+    }
+
+
+    #cursor,
+    #cursor-bg {
+        display: none;
+    }
+
+
+
+
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-    #contactSec .formCont {
-        width: 75%;
 
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+
+    #nav .menu {
+        width: 60%;
+    }
+
+    #homeSec #about {
+        justify-content: end;
+
+        .container {
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+            padding: 1rem 2rem;
+            margin: 0.5rem 0;
+        }
+    }
+
+    #homeSec #about .cont1 {
+
+        .imgCont {
+            width: 150rem;
+            height: 20rem;
+
+        }
+
+        .right {
+            width: auto;
+
+            h1 {
+                font-size: 3.5rem;
+                line-height: 4rem;
+            }
+
+            .intro {
+                font-size: 1.5rem;
+                line-height: 35px;
+
+            }
+
+            .description,
+            .description strong {
+                font-size: 1.1rem;
+                text-align: justify;
+            }
+        }
+    }
+
+
+
+    #projectsSec #fProj {
+        line-height: 3.5rem;
+        left: 10%;
+
+        h1 {
+            font-size: 4rem;
+
+            &:nth-child(1) {
+                letter-spacing: 0.7rem;
+            }
+        }
+    }
+
+    #projectsSec .cont {
+        padding-bottom: 0rem;
+    }
+
+    #projectsSec .cont .card {
+
+        .imgCard {
+            height: 60%;
+        }
+
+        .textCard {
+            height: 40%;
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p.intro {
+                font-size: 1rem;
+            }
+        }
+    }
+
+
+
+    #quoteSec {
+        height: 80dvh;
+    }
+
+    #quoteSec .quote {
+        width: 80%;
+        padding: 2rem;
+
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        i {
+            scale: 2.5;
+
+            &:nth-child(1) {
+                margin-top: -15rem;
+            }
+
+            &:nth-child(3) {
+                margin-top: 15rem;
+            }
+        }
+    }
+
+    footer>div {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+    #nav {
+        padding: 0 1.5rem;
+
+        .menu {
+            width: 100%;
+        }
+    }
+
+    #homeSec #part1 {
+        padding: 0;
+
+        .left {
+            padding: 0 1rem;
+
+            h4 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            h1 {
+                font-size: 4rem;
+                line-height: 65px;
+
+                span.i-span {
+                    height: 32px;
+                    width: 15px;
+                }
+            }
+
+            .h2cont {
+                flex-direction: column;
+                gap: 5px 10px;
+
+                h2,
+                h2 span {
+                    font-size: 1.5rem;
+                }
+            }
+
+
+            #i-dot {
+                height: 12px;
+                width: 14px;
+            }
+        }
+
+        
+    }
+
+
+    #homeSec #about {
+        justify-content: flex-end;
+
+        .container {
+            gap: 1rem;
+            justify-content: center;
+            width: 100%;
+            padding: 0 1rem;
+            margin: 0;
+        }
+
+    }
+
+    #homeSec #about .cont1 {
+        flex-direction: column;
+
+        .imgCont {
+            height: 40%;
+            width: 15rem;
+
+            img {
+                object-fit: fill;
+
+            }
+        }
+
+        .right {
+            width: 100%;
+            height: 60%;
+            overflow: hidden;
+
+            h1 {
+                font-size: 3rem;
+                line-height: 3.2rem;
+            }
+
+            .intro {
+                font-size: 1.35rem;
+                line-height: 25px;
+                margin: 0.5rem 0;
+
+            }
+
+            .description,
+            .description strong {
+                font-size: 1rem;
+            }
+        }
+    }
+
+
+
+    #projectsSec #fProj {
+        line-height: 3.5rem;
+        left: 2%;
+
+        h1 {
+            font-size: 3.5rem;
+
+            &:nth-child(1) {
+                letter-spacing: 0.5rem;
+                -webkit-text-stroke: 1px var(--crimson);
+                color: transparent;
+            }
+        }
+    }
+
+    #projectsSec .cont .card {
+        padding: 0 1rem;
+
+        .imgCard {
+            height: 55%;
+        }
+
+        .textCard {
+            height: 45%;
+            padding: 0rem;
+
+            h1 {
+                margin-top: 0rem;
+                font-size: 2.5rem;
+            }
+
+            p.intro,p.skill  {
+                font-size: 1rem;
+            }
+        }
+    }
+
+
+
+    #quoteSec {
+        height: 35rem;
+        padding: 2rem 1rem;
+    }
+
+    #quoteSec .quote {
+        width: 95%;
+        gap: 7px;
+
+        h1 {
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        i {
+            margin: 0 5px;
+            scale: 2;
+            font-size: 1rem;
+
+        }
+    }
+
+
+
+    #contactSec .formCont {
+        padding: 2rem 1rem;
+
+        >h1 {
+            font-size: 2.5rem;
+        }
+
+        >p {
+            font-size: 1.25rem;
+        }
+
+        .contactOption {
+            flex-direction: column;
+            align-items: center;
+
+            a.card {
+                width: 15rem;
+                justify-content: center;
+            }
+        }
+    }
+
+    #contactSec .formCont #contactForm {
+        gap: 1.3rem;
+
+        .elemWrapper {
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        .formElem {
+
+            label {
+                font-size: 1.15rem;
+            }
+        }
+    }
+
+    #contactSec textarea {
+        height: 20vh;
+    }
+
+    footer .fBottom {
+        padding: 0.8rem 2rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    footer .fTop {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+
+    .btn {
+        font-size: 1.2rem;
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@media (max-width: 390px) {
+
+    #homeSec #part1 {
+        .left {
+            h1 {
+                font-size: 3.1rem;
+
+                span.i-span {
+                    height: 26px;
+                    width: 13px;
+                }
+            }
+
+            #i-dot{
+                width: 12.5px;
+            }
+        }
+    }
+
+    #homeSec #about .cont1 {
+        gap: 0.5rem;
+
+        .imgCont {
+            height: 35%;
+            width: 11.5rem;
+        }
+
+        .right {
+            height: 65%;
+
+            h1 {
+                line-height: 3rem;
+            }
+            .description, .description strong {
+                font-size: 0.95rem;
+            }
+        }
+    }
+
+    #projectsSec .cont .card {
+        .imgCard {
+            height: 45%;
+        }
+
+        .textCard {
+            height: 55%;
+            padding: 0rem;
+            margin-top: 0.8rem;
+
+            h1 {
+                font-size: 2.1rem;
+            }
+        }
     }
 
     #projectsSec #fProj {
-        left: 25%;
+        h1 {
+            font-size: 2.9rem;
+
+            &:nth-child(1) {
+                letter-spacing: 0.3rem;
+            }
+        }
     }
-
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    /* CSS rules for extra large devices */
-
-
 }
