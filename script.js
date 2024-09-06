@@ -215,12 +215,12 @@ function loaderClose() {
    tl.from("#part1 h2", {
       opacity: 0,
       letterSpacing: "1rem",
-   })
+   },"a")
 
    tl.from("#scroll", {
       y: 100,
       opacity: 0,
-   })
+   },"a")
 
 
 
