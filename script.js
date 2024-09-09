@@ -465,7 +465,7 @@ function populateF_Link() {
          "class": "linkedin"
       },
       {
-         "link": "mailto:abikalita34@gmail.com",
+         "link": "mailto:connect@abikalita.in",
          "class": "envelope-fill"
       },
       {
