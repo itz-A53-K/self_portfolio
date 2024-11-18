@@ -1,3 +1,4 @@
+import * as siteData from './siteData.js'
 (function () {
    const locomotiveScroll = new LocomotiveScroll({
       lenisOptions: {
@@ -10,7 +11,6 @@
       }
    });
 })();
-
 
 
 $(window).resize(function () {
@@ -57,7 +57,7 @@ $(document).ready(() => {
 
 
 
-   i_spanPos = $("#part1 .i-span").position()
+   i_spanPos = $("#home .i-span").position()
    var i_spanTop = i_spanPos.top - 25
 
    if ((window.matchMedia("(max-width: 575.99px)")).matches) {
@@ -191,7 +191,7 @@ function loaderClose() {
       duration: .5
    })
 
-   tl.from("#part1 h1,#part1 h4", {
+   tl.from("#home h1,#home h4", {
       x: -100,
       opacity: 0,
       letterSpacing: "1.5rem",
@@ -207,12 +207,12 @@ function loaderClose() {
       opacity: 0,
    }, "a")
 
-   tl.from("#part1 .right", {
+   tl.from("#home .right", {
       scale: 0,
       opacity: 0,
    }, "a")
 
-   tl.from("#part1 h2", {
+   tl.from("#home h2", {
       opacity: 0,
       letterSpacing: "1rem",
    },"a")
@@ -295,29 +295,10 @@ function homeAnimation() {
 }
 
 function populate_featuredProjects() {
-   var projData = [
-      {
-         "name": "FoodFest",
-         "info": "An intuitive food ordering platform where users can conveniently log in and order their favorite fast foods. With a user-friendly interface, seamless navigation, and secure payment options, it offers a hassle-free experience for satisfying cravings with just a few clicks.",
-         "skill": " PHP, MySQL, HTML, CSS, JS",
-         "imgName": "foodFest.webp"
-      },
-      {
-         "name": "ShoppingSite",
-         "info": "A dynamic E-Commerce platform powered by Django. Crafted with precision and fueled by my expertise, this site delivers a seamless shopping experience from product browsing to secure checkout. The site include product recomendation, category wise browsing and many more.",
-         "skill": "Django, SQLite, jQuery, HTML, CSS, JS",
-         "imgName": "shoppingSite.webp"
-      },
-      {
-         "name": "CodeDiscuss",
-         "info": "An online forum tailored exclusively for coders and developers. Seamlessly designed for knowledge sharing and collaboration, users can login to engage in vibrant discussions, post queries, and provide expert solutions. There are different programming language based community in the forum.",
-         "skill": "MySQL, PHP, Bootstrap, HTML, CSS, JS",
-         "imgName": "codeDiscuss.webp"
-      },
-   ]
+
 
    var allCards = ""
-   projData.forEach(elem => {
+   siteData.fProjects_data.forEach(elem => {
       allCards += `
          <div class="card">
             <div class="cardCont">
@@ -329,6 +310,10 @@ function populate_featuredProjects() {
                      <h1 class="heading">${elem.name}</h1>
                      <p class="intro">${elem.info}</p>
                      <p class="skill"><b>Skill Used:</b> ${elem.skill}.</p>
+                     <div> 
+                        ${elem.github? `<a href="${elem.github}" target="_blank" type="github">GitHub Repo</a>` : ''}
+                        ${elem.live? `<a href="${elem.live}" target="_blank" type="live">View</a>` : ''}
+                     </div>
                </div>
                
             </div>
@@ -459,23 +444,9 @@ function quoteAnimation() {
 
 function populateF_Link() {
 
-   var socials = [
-      {
-         "link": "https://www.linkedin.com/in/abinash-kalita",
-         "class": "linkedin"
-      },
-      {
-         "link": "mailto:connect@abikalita.in",
-         "class": "envelope-fill"
-      },
-      {
-         "link": "https://github.com/itz-A53-K",
-         "class": "github"
-      }
-   ]
 
    var html = ""
-   socials.forEach(element => {
+   siteData.socials.forEach(element => {
       html += `<a href="${element.link}" target="_blank" rel="noopener noreferrer" class="">
          <i class="bi bi-${element.class}"></i>
       </a>`;
