@@ -8,7 +8,8 @@
 
     $data;
     $isSent = false;
-    $dataMsg = $debugMsg = "";
+    $dataMsg ="";
+    $debugMsg = "";
 
     // Check if form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,7 +45,8 @@
             $mail->isHTML(true);
             $mail->Subject = 'Type: ' . $type . '.';
             $mail->Body    = $emailBody;
-            $mail->AltBody = $msg;
+            $mail->AltBody = 'Sender Name = '.$name.', Sender Email = '.$email.', Phone No. = '.$phNo.', Message Type = '.$type.', Message = '.$msg.'.';
+
 
             // Send email
             if ($mail->send()) {
