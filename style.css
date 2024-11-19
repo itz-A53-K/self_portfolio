@@ -90,7 +90,7 @@ body[theme="dark"] {
         color: var(--crimson);
     }
 
-    #projectsSec,
+    #fProjectsSec,
     #about * {
         transition: color 1s ease-in-out;
         color: var(--text-white) !important;
@@ -109,7 +109,7 @@ body[theme="light"] {
         color: var(--dark);
     }
 
-    #projectsSec {
+    #fProjectsSec {
         transition: color 1s ease-in-out;
         color: var(--dark);
     }
@@ -302,10 +302,11 @@ ul li {
 
     border-bottom: 1px solid #83838339;
 
-    .logo{
+    .logo {
         height: 45px;
         width: 45px;
-        img{
+
+        img {
             height: 100%;
             width: 100%;
             object-fit: cover;
@@ -428,8 +429,8 @@ ul li {
         padding: 0 6rem;
     }
 
-    #home{
-        background: linear-gradient(90deg,var(--bg-home) 30%, rgb(96, 33, 45) 70%, black);
+    #home {
+        background: linear-gradient(90deg, var(--bg-home) 50%, rgb(96, 33, 45) 80%, black);
     }
 }
 
@@ -611,7 +612,7 @@ ul li {
 
 
 
-#projectsSec {
+#fProjectsSec {
     height: 100vh;
     width: 100%;
     padding: 0rem;
@@ -620,7 +621,7 @@ ul li {
     padding-bottom: 1rem;
 }
 
-#projectsSec #fProj {
+#fProjectsSec #fProj {
     line-height: 5rem;
     position: absolute;
     left: 50%;
@@ -638,7 +639,7 @@ ul li {
     }
 }
 
-#projectsSec .cont {
+#fProjectsSec .cont {
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -652,7 +653,7 @@ ul li {
 
 
 
-#projectsSec .cont .card {
+#fProjectsSec .cont .card {
     box-sizing: border-box;
     margin: 2rem 0;
     padding: 0 2rem;
@@ -703,25 +704,26 @@ ul li {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        div{
+        div {
             margin: 1rem 0;
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
 
-            a[type='github']{
+            a[type='github'] {
                 padding: 6px 10px;
                 border-radius: 5px;
                 font-weight: 800;
                 background: #fff;
                 transition: all 0.2s ease-in-out;
 
-                &:hover{
+                &:hover {
                     background: #e1cbc3;
                 }
             }
-            a[type ="live"]{
-                
+
+            a[type="live"] {
+
                 padding: 6px 10px;
                 border-radius: 5px;
                 font-weight: 800;
@@ -729,7 +731,8 @@ ul li {
                 border: 1px solid var(--crimson);
                 color: var(--crimson);
                 transition: all 0.2s ease-in-out;
-                &:hover{
+
+                &:hover {
                     border: 1px solid var(--crimson);
                     /* color: var(--crimson); */
                     background: var(--crimson);
@@ -1105,7 +1108,7 @@ footer .fBottom {
 
     }
 
-    #projectsSec #fProj {
+    #fProjectsSec #fProj {
         left: 25%;
     }
 
@@ -1119,14 +1122,14 @@ footer .fBottom {
         }
     }
 
-    #projectsSec .cont {
+    #fProjectsSec .cont {
         height: calc(100dvh - 70px);
     }
 
-    #projectsSec .cont .card {
+    #fProjectsSec .cont .card {
         height: 85%;
 
-        .cardCont{
+        .cardCont {
             gap: 0.5rem;
         }
 
@@ -1152,7 +1155,9 @@ footer .fBottom {
     }
 
     footer {
-        .fTop, .fBottom {
+
+        .fTop,
+        .fBottom {
             padding-left: 5rem;
             padding-right: 5rem;
         }
@@ -1168,18 +1173,35 @@ footer .fBottom {
         width: 55%;
     }
 
-    #homeSec #about {
-        justify-content: end;
+    #homeSec {
+        #home {
+            padding: 0 3rem;
+            .left {
+                width: 100%;
 
-        .container {
-            gap: 1.5rem;
-            align-items: center;
-            width: 100%;
-            padding: 1rem 2rem;
-            margin: 1rem 0;
+                h1 {
+                    font-size: 5.5rem;
+                    line-height: 6.5rem;
+                }
+            }
+            .right {
+                display: none;
+            }
         }
 
+        #about {
+            justify-content: end;
 
+            .container {
+                gap: 1.5rem;
+                align-items: center;
+                width: 100%;
+                padding: 1rem 2rem;
+                margin: 1rem 0;
+            }
+
+
+        }
     }
 
     #homeSec #about .cont1 {
@@ -1220,7 +1242,7 @@ footer .fBottom {
         width: 85%;
     }
 
-    #projectsSec #fProj {
+    #fProjectsSec #fProj {
         left: 13%;
     }
 
@@ -1253,66 +1275,71 @@ footer .fBottom {
 
 }
 
-@media(max-width: 991.98px){
-    #projectsSec .cont .card {
+@media(max-width: 991.98px) {
+    #fProjectsSec .cont .card {
         height: 85%;
 
-        .cardCont{
+        .cardCont {
             flex-direction: column;
             gap: 0rem;
         }
 
         .imgCard {
             width: 100%;
-            height: 63%;
+            height: 60%;
         }
 
         .textCard {
             width: 100%;
-            height: 37%;
-            padding: 0.8rem;
+            height: 40%;
+            padding: 0.5rem;
             padding-bottom: 0;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
                 color: crimson;
             }
 
-            p.intro, p.skill {
-                font-size: 1.1rem;
+            p.intro,
+            p.skill {
+                font-size: 1.05rem;
                 margin-top: 0.5rem;
             }
         }
-        
-        
+
+
     }
 }
 
 @media (max-width: 768px) {
 
-    #homeSec #home{
+    #homeSec #home {
         padding: 0 2rem;
-        .left{
+
+        .left {
             width: 100%;
-            h1{
+
+            h1 {
                 font-size: 5.5rem;
+
                 span.i-span {
                     height: 47px;
                     width: 20px;
                 }
             }
+
             #i-dot {
                 height: 16px;
                 width: 20px;
             }
         }
 
-   .right {
-        display: none;
+        .right {
+            display: none;
+        }
     }
-    }
-   
+
 
     #contactSec .formCont {
         width: 100%;
@@ -1352,7 +1379,9 @@ footer .fBottom {
     }
 
     footer {
-        .fTop, .fBottom {
+
+        .fTop,
+        .fBottom {
             padding-left: 2rem;
             padding-right: 2rem;
         }
@@ -1462,7 +1491,7 @@ footer .fBottom {
 
 
 
-    #projectsSec #fProj {
+    #fProjectsSec #fProj {
         line-height: 3.5rem;
         left: 10%;
 
@@ -1475,11 +1504,11 @@ footer .fBottom {
         }
     }
 
-    #projectsSec .cont {
+    #fProjectsSec .cont {
         padding-bottom: 0rem;
     }
 
-    #projectsSec .cont .card {
+    #fProjectsSec .cont .card {
 
         .imgCard {
             height: 60%;
@@ -1583,7 +1612,7 @@ footer .fBottom {
             }
         }
 
-        
+
     }
 
 
@@ -1639,7 +1668,7 @@ footer .fBottom {
 
 
 
-    #projectsSec #fProj {
+    #fProjectsSec #fProj {
         line-height: 3.5rem;
         left: 2%;
 
@@ -1654,7 +1683,7 @@ footer .fBottom {
         }
     }
 
-    #projectsSec .cont .card {
+    #fProjectsSec .cont .card {
         padding: 0 0.5rem;
 
         .imgCard {
@@ -1670,7 +1699,8 @@ footer .fBottom {
                 font-size: 2.5rem;
             }
 
-            p.intro,p.skill  {
+            p.intro,
+            p.skill {
                 font-size: 1rem;
             }
         }
@@ -1778,7 +1808,7 @@ footer .fBottom {
                 }
             }
 
-            #i-dot{
+            #i-dot {
                 width: 12.5px;
             }
         }
@@ -1798,13 +1828,15 @@ footer .fBottom {
             h1 {
                 line-height: 3rem;
             }
-            .description, .description strong {
+
+            .description,
+            .description strong {
                 font-size: 0.95rem;
             }
         }
     }
 
-    #projectsSec .cont .card {
+    #fProjectsSec .cont .card {
         .imgCard {
             height: 45%;
         }
@@ -1820,7 +1852,7 @@ footer .fBottom {
         }
     }
 
-    #projectsSec #fProj {
+    #fProjectsSec #fProj {
         h1 {
             font-size: 2.9rem;
 

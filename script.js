@@ -4,7 +4,7 @@ import * as siteData from './siteData.js'
       lenisOptions: {
          smoothWheel: true,
          smoothTouch: true,
-         wheelMultiplier: 0.25,
+         wheelMultiplier: 0.3,
          touchMultiplier: 0.8,
          // easing: 'easeInOut',
 
@@ -18,40 +18,40 @@ $(window).resize(function () {
 
 
 $(window).on('beforeunload', function () {
-  
+
 });
 
 var i_spanPos;
 $(document).ready(() => {
 
 
-   var loaderTL= gsap.timeline()
-   loaderTL.to("#loader h2",{
+   var loaderTL = gsap.timeline()
+   loaderTL.to("#loader h2", {
       y: "0%",
       opacity: 1,
       duration: 1
    })
-   loaderTL.to("#loader >div",{
+   loaderTL.to("#loader >div", {
       opacity: 1,
       duration: 1
    })
 
    setInterval(() => {
       var t = gsap.timeline()
-      t.to("#loader .line",{
+      t.to("#loader .line", {
          height: "2rem",
          duration: 0.1,
          stagger: 0.1
       })
-      t.to("#loader .line",{
+      t.to("#loader .line", {
          height: "1rem",
          duration: 0.1,
          stagger: 0.1
-      })      
+      })
    }, 1000);
 
    setTimeout(() => {
-      $(window).scrollTop(0); 
+      $(window).scrollTop(0);
       loaderClose()
    }, 4000);
 
@@ -71,15 +71,15 @@ $(document).ready(() => {
 
 
    cursorMoveAnimation()
-   autoScroll()   
+   autoScroll()
    homeAnimation()
    navMenuAnimation()
    populate_featuredProjects()
-   projectsSecAnimation()
+   fProjectsSecAnimation()
    quoteAnimation()
-   footerAnimation()   
+   footerAnimation()
    themeAnimation()
-   
+
 })
 
 handleForm()
@@ -91,31 +91,31 @@ var navTL
 
 
 function navMenuAnimation() {
-   navTL= gsap.timeline({paused: true})
+   navTL = gsap.timeline({ paused: true })
 
-   navTL.from("#nav .menu",{
+   navTL.from("#nav .menu", {
       right: "-110%",
       duration: 0.5
    })
-   navTL.from("#nav .menu i",{
+   navTL.from("#nav .menu i", {
       rotate: 180
-   },"a")
-   navTL.from("#nav .navLinks li, #nav .menu i",{
+   }, "a")
+   navTL.from("#nav .navLinks li, #nav .menu i", {
       x: "150%",
       duration: 0.6,
       opacity: 0,
       stagger: 0.2,
-   },"a")
+   }, "a")
 
-   $("#nav .hamburger").click(function(){
+   $("#nav .hamburger").click(function () {
       navTL.play()
-      
+
    })
-   $("#nav .menu i").click(function(){
+   $("#nav .menu i").click(function () {
       navTL.reverse()
-      
+
    })
-   
+
 }
 
 function cursorMoveAnimation() {
@@ -215,12 +215,12 @@ function loaderClose() {
    tl.from("#home h2", {
       opacity: 0,
       letterSpacing: "1rem",
-   },"a")
+   }, "a")
 
    tl.from("#scroll", {
       y: 100,
       opacity: 0,
-   },"a")
+   }, "a")
 
 
 
@@ -311,8 +311,8 @@ function populate_featuredProjects() {
                      <p class="intro">${elem.info}</p>
                      <p class="skill"><b>Skill Used:</b> ${elem.skill}.</p>
                      <div> 
-                        ${elem.github? `<a href="${elem.github}" target="_blank" type="github">GitHub Repo</a>` : ''}
-                        ${elem.live? `<a href="${elem.live}" target="_blank" type="live">View</a>` : ''}
+                        ${elem.github ? `<a href="${elem.github}" target="_blank" type="github">GitHub Repo</a>` : ''}
+                        ${elem.live ? `<a href="${elem.live}" target="_blank" type="live">View</a>` : ''}
                      </div>
                </div>
                
@@ -321,20 +321,20 @@ function populate_featuredProjects() {
       `
    });
 
-   $("#projectsSec .cont").html(allCards)
+   $("#fProjectsSec .cont").html(allCards)
 
 }
 
 
-function projectsSecAnimation() {
+function fProjectsSecAnimation() {
 
-   gsap.from("#projectsSec #fProj h1", {
+   gsap.from("#fProjectsSec #fProj h1", {
       fontSize: "10rem",
       letterSpacing: "5rem",
       opacity: 0,
       duration: 2,
       scrollTrigger: {
-         trigger: "#projectsSec",
+         trigger: "#fProjectsSec",
          start: `top 90%`,
          end: "top 15%",
          scrub: 2,
@@ -347,7 +347,7 @@ function projectsSecAnimation() {
    var tl = gsap.timeline({
 
       scrollTrigger: {
-         trigger: "#projectsSec ",
+         trigger: "#fProjectsSec ",
          start: `top top`,
          end: "bottom -100%",
          scrub: 1,
@@ -359,7 +359,7 @@ function projectsSecAnimation() {
 
    if ((window.matchMedia("(max-width: 575.99px)")).matches) {
 
-      tl.to("#projectsSec #fProj", {
+      tl.to("#fProjectsSec #fProj", {
          left: "-8%",
          top: "7%",
          scale: 0.7,
@@ -369,7 +369,7 @@ function projectsSecAnimation() {
    }
    else if ((window.matchMedia("(max-width: 768px)")).matches && (window.matchMedia("(min-width: 576px)")).matches) {
 
-      tl.to("#projectsSec #fProj", {
+      tl.to("#fProjectsSec #fProj", {
          left: "-8%",
          top: "7%",
          scale: 0.6,
@@ -378,7 +378,7 @@ function projectsSecAnimation() {
 
    }
    else {
-      tl.to("#projectsSec #fProj", {
+      tl.to("#fProjectsSec #fProj", {
          left: "-6%",
          top: "5.5%",
          scale: 0.5,
@@ -390,14 +390,14 @@ function projectsSecAnimation() {
 
 
 
-   tl.from("#projectsSec .cont .card", {
+   tl.from("#fProjectsSec .cont .card", {
       x: "100%",
       duration: 1.2,
    }, "aa")
 
 
 
-   tl.to("#projectsSec .cont .card", {
+   tl.to("#fProjectsSec .cont .card", {
       x: xPercentCount(),
       ease: Power4,
       duration: 3
@@ -405,7 +405,7 @@ function projectsSecAnimation() {
 
 
    function xPercentCount() {
-      var elem = document.querySelector("#projectsSec .cont")
+      var elem = document.querySelector("#fProjectsSec .cont")
       var xValue = `-${(elem.childElementCount) * 100 - 100}%  `
       return xValue
 
@@ -559,38 +559,33 @@ function handleForm() {
    contForm.submit(function (e) {
 
       e.preventDefault();
-      var formElems = $("#contactForm input, #contactForm textarea, #contactForm select");
-      var frmBtn = $("#contactForm button")
+
+      const formData = $(this).serializeArray();
+      const frmBtn = $("#contactForm button")
 
       frmBtn.prop("disabled", true).html('Sending <i class="bi bi-arrow-clockwise"></i>');
 
-
-
       $.ajax({
          type: "POST",
-         url: "./handleForm.php",
-         data: {
-            uName: formElems[0].value,
-            uEmail: formElems[1].value,
-            uPhone: formElems[2].value,
-            type: formElems[3].value,
-            msg: formElems[4].value,
-         },
+         url: "./send_email.php",
+         data: formData,
          success: function (data) {
-            
+
             if (data.isSent == true) {
-               showAlert("Message Sent Succcessfully !", "success")
+               showAlert(data.msg, "success")
                contForm.trigger("reset")
             }
             else {
-               showAlert("Try Again! Some error occured.", "danger")
+               showAlert(data.msg, "danger")
 
             }
             frmBtn.prop("disabled", false).html('Send <i class="bi bi-arrow-right"></i>');
          },
-         error: function(err){
-            console.log(err);
-            
+         error: function (err, data) {
+            showAlert(data.msg, "danger")
+            frmBtn.prop("disabled", false).html('Send <i class="bi bi-arrow-right"></i>');
+
+            // console.log(err, data.debugMsg);
          }
       })
 
