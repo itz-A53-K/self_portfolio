@@ -198,8 +198,8 @@ function homeAnimation() {
 
    tl
       .from("#homeSec #about,#nav", { display: "none" }, "part2Elem")
-      .from("#homeSec #about .cont1 .imgCont", { x: -100, opacity: 0 }, "part2Elem")
-      .from("#homeSec #about .cont1 .right", { x: 100, opacity: 0 }, "part2Elem")
+      .from("#homeSec #about .container .imgCont", { x: -100, opacity: 0 }, "part2Elem")
+      .from("#homeSec #about .container .right", { x: 100, opacity: 0 }, "part2Elem")
 }
 
 function populate_featuredProjects() {
