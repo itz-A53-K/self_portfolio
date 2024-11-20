@@ -14,7 +14,7 @@
 import * as siteData from './siteData.js'
 
 
-$(window).resize(() => location.reload());
+$(window).resize(() => {});
 
 
 $(window).on('beforeunload', () => { });
