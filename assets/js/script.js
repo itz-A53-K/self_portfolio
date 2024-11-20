@@ -41,12 +41,12 @@ $(document).ready(() => {
 
    set_i_dot()
    initializeAnimations()
+   navMenuAnimation()
 
 })
 
 const initializeAnimations = () => {
    homeAnimation()
-   navMenuAnimation()
    populate_featuredProjects()
    fProjectsSecAnimation()
    quoteAnimation()
